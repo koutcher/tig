@@ -280,6 +280,10 @@ The following variables can be set:
 	regions are governed by `color diff-add-highlight` and
 	`color diff-del-highlight`.
 
+'diff-noindicator' (bool)::
+
+	Hide diff +/- signs.
+
 'ignore-space' (mixed) [no|all|some|at-eol|<bool>]::
 
 	Ignore space changes in diff view. By default no space changes are

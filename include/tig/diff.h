@@ -28,6 +28,7 @@ struct diff_state {
 	unsigned int lineno;
 	struct position pos;
 	struct io view_io;
+	unsigned int parents;
 };
 
 enum request diff_common_edit(struct view *view, enum request request, struct line *line);

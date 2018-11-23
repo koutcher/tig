@@ -304,6 +304,10 @@ diff_common_read(struct view *view, const char *data, struct diff_state *state)
 {
 	enum line_type type = get_line_type(data);
 
+	if (opt_diff_noindicator && state->reading_diff_chunk &&
+	    type != LINE_DIFF_HEADER && type != LINE_DIFF_CHUNK)
+		data += state->parents;
+
 	/* ADD2 and DEL2 are only valid in combined diff hunks */
 	if (!state->combined_diff && (type == LINE_DIFF_ADD2 || type == LINE_DIFF_DEL2))
 		type = LINE_DEFAULT;
@@ -347,7 +351,7 @@ diff_common_read(struct view *view, const char *data, struct diff_state *state)
 		state->reading_diff_chunk = false;
 
 	} else if (type == LINE_DIFF_CHUNK) {
-		const int len = chunk_header_marker_length(data);
+		const unsigned int len = chunk_header_marker_length(data);
 		const char *context = strstr(data + len, "@@");
 		struct line *line =
 			context ? add_line_text_at(view, view->lines, data, LINE_DIFF_CHUNK, len)
@@ -362,6 +366,7 @@ diff_common_read(struct view *view, const char *data, struct diff_state *state)
 		box->cell[1].length = strlen(context + len);
 		box->cell[box->cells++].type = LINE_DIFF_STAT;
 		state->combined_diff = (len > 2);
+		state->parents = len - 1;
 		state->reading_diff_chunk = true;
 		return true;
 
