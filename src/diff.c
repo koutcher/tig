@@ -647,13 +647,6 @@ diff_trace_origin(struct view *view, struct line *line)
 	struct blame_header header;
 	struct blame_commit commit;
 
-	if (!commit_line) {
-		report("Failed to read the commit ID");
-		return REQ_NONE;
-	}
-
-	string_copy_rev_from_commit_line(id, box_text(commit_line));
-
 	if (!diff || !chunk || chunk == line || diff < commit_line) {
 		report("The line to trace must be inside a diff chunk");
 		return REQ_NONE;
@@ -694,6 +687,11 @@ diff_trace_origin(struct view *view, struct line *line)
 			lineno++;
 		}
 	}
+
+	if (commit_line)
+		string_copy_rev_from_commit_line(id, box_text(commit_line));
+	else
+		string_copy(id, view->vid);
 
 	if (chunk_marker == '-')
 		string_format(ref, "%s^", id);
