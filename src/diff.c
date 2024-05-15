@@ -633,7 +633,7 @@ diff_get_lineno(struct view *view, struct line *line, bool old)
 }
 
 static enum request
-diff_trace_origin(struct view *view, struct line *line)
+diff_trace_origin(struct view *view, enum request request, struct line *line)
 {
 	struct line *commit_line = find_prev_line_by_type(view, line, LINE_COMMIT);
 	char id[SIZEOF_REV];
@@ -704,10 +704,10 @@ diff_trace_origin(struct view *view, struct line *line)
 	}
 
 	string_ncopy(view->env->file, commit.filename, strlen(commit.filename));
-	string_copy(view->env->ref, header.id);
+	string_copy(request == REQ_VIEW_BLAME ? view->env->ref : view->env->commit, header.id);
 	view->env->goto_lineno = header.orig_lineno - 1;
 
-	return REQ_VIEW_BLAME;
+	return request;
 }
 
 const char *
@@ -782,7 +782,8 @@ diff_request(struct view *view, enum request request, struct line *line)
 {
 	switch (request) {
 	case REQ_VIEW_BLAME:
-		return diff_trace_origin(view, line);
+	case REQ_VIEW_BLOB:
+		return diff_trace_origin(view, request, line);
 
 	case REQ_EDIT:
 		return diff_common_edit(view, request, line);
