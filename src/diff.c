@@ -652,16 +652,9 @@ diff_trace_origin(struct view *view, enum request request, struct line *line)
 		return REQ_NONE;
 	}
 
-	for (; diff < line && !file; diff++) {
-		const char *data = box_text(diff);
+	file = diff_get_pathname(view, line, line->type == LINE_DIFF_DEL);
 
-		if (!prefixcmp(data, "--- a/")) {
-			file = data + STRING_SIZE("--- a/");
-			break;
-		}
-	}
-
-	if (diff == line || !file) {
+	if (!file) {
 		report("Failed to read the file name");
 		return REQ_NONE;
 	}
