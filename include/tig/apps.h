@@ -31,7 +31,7 @@ struct app_external {
  * diff-highlight
  */
 
-struct app_external *app_diff_highlight_load(const char *query);
+struct app_external *app_diff_highlight_load(const char **query);
 
 #endif
 
