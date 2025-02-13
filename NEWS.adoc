@@ -1,6 +1,13 @@
 Release notes
 =============
 
+master
+------
+
+Improvements:
+
+ - Allow arguments for `diff-highlight`.
+
 tig-2.6.0
 ---------
 
