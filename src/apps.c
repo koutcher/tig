@@ -95,7 +95,7 @@ app_diff_highlight_path_search(char *dest, size_t destlen, const char *query)
 }
 
 struct app_external
-*app_diff_highlight_load(const char *query)
+*app_diff_highlight_load(const char **query)
 {
 	static struct app_external dhlt_app = { { NULL }, { "GIT_CONFIG=/dev/null", NULL } };
 	static bool did_search = false;
@@ -104,11 +104,14 @@ struct app_external
 	static char perl_include[SIZEOF_STR];
 
 	if (!did_search
-	    && app_diff_highlight_path_search(dhlt_path, sizeof(dhlt_path), query)
+	    && app_diff_highlight_path_search(dhlt_path, sizeof(dhlt_path), *query)
 	    && *dhlt_path) {
 		if (suffixcmp(dhlt_path, strlen(dhlt_path), "/diff-highlight.perl")) {
+			int i;
 			dhlt_app.argv[0] = dhlt_path;
-			dhlt_app.argv[1] = NULL;
+			for (i = 1; query[i] && i < SIZEOF_ARG - 1; i++)
+				dhlt_app.argv[i] = query[i];
+			dhlt_app.argv[i] = NULL;
 		} else if (path_search(perl_path, sizeof(perl_path), "perl", getenv("PATH"), X_OK)) {
 			/* if the package manager failed to "make install" within the contrib dir, rescue via */
 			/* perl -MDiffHighlight -I/path/containing /path/containing/diff-highlight.perl */

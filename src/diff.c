@@ -62,7 +62,7 @@ diff_init_highlight(struct view *view, struct diff_state *state)
 		app->argv[0] = "";
 
 	if (!io_exec(&io, IO_RP, view->dir, app->env, app->argv, view->io.pipe))
-		return error("Failed to run %s", opt_diff_highlight);
+		return error("Failed to run %s", *opt_diff_highlight);
 
 	state->view_io = view->io;
 	view->io = io;
@@ -531,7 +531,7 @@ diff_read(struct view *view, struct buffer *buf, bool force_stop)
 	if (!buf) {
 		if (!diff_done_highlight(state)) {
 			if (!force_stop)
-				report("Failed to run the diff-highlight program: %s", opt_diff_highlight);
+				report("Failed to run the diff-highlight program: %s", *opt_diff_highlight);
 			return false;
 		}
 

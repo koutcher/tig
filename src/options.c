@@ -648,6 +648,18 @@ parse_args(const char ***args, const char *argv[], bool append)
 		return SUCCESS;
 	}
 
+	if (args == &opt_diff_highlight && *argv) {
+		bool enabled = false;
+
+		if (parse_bool(&enabled, *argv) == SUCCESS) {
+			if (!enabled) {
+				argv_free(*args);
+				return SUCCESS;
+			}
+			*argv = "diff-highlight";
+		}
+	}
+
 	if (!argv_copy(args, argv))
 		return ERROR_OUT_OF_MEMORY;
 	return SUCCESS;
@@ -744,18 +756,6 @@ parse_option(struct option_info *option, const char *prefix, const char *arg)
 	if (!strcmp(option->type, "const char *")) {
 		const char **value = option->value;
 		char *alloc = NULL;
-
-		if (option->value == &opt_diff_highlight) {
-			bool enabled = false;
-
-			if (parse_bool(&enabled, arg) == SUCCESS) {
-				if (!enabled) {
-					*value = NULL;
-					return SUCCESS;
-				}
-				arg = "diff-highlight";
-			}
-		}
 
 		if (strlen(arg)) {
 			if (arg[0] == '"' && arg[strlen(arg) - 1] == '"')
