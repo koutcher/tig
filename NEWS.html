@@ -1,0 +1,5288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.2.1" />
+<title>Release notes</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overridden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Release notes</h1>
+<span id="revdate">2025-02-05</span>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_tig_2_5_12">tig-2.5.12</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix empty blame view when opened from the diff view on i586. (#1362)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_11">tig-2.5.11</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Update remote repo variables. (#1358)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix various issues with <code>diff.noprefix</code> and <code>--no-prefix</code>.
+</p>
+</li>
+<li>
+<p>
+Fix <code>Ctrl-C</code> behavior within the Readline prompt. (#1342)
+</p>
+</li>
+<li>
+<p>
+Fix message upon edit from diffstat without patch.
+</p>
+</li>
+<li>
+<p>
+Fix missing dates in the refs view.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t report an error when diff-highlight is killed intentionally.
+</p>
+</li>
+<li>
+<p>
+Fix parsing of reflog designator in timestamp format.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Open the blob corresponding to the diff line. (#1334)
+</p>
+</li>
+<li>
+<p>
+Keep cursor position in the main view when toggling
+   file-filter and rev-filter.
+</p>
+</li>
+<li>
+<p>
+Make errors visible in views showing Git output. (#1346)
+</p>
+</li>
+<li>
+<p>
+Allow different colors for all references types.
+</p>
+</li>
+<li>
+<p>
+Enable search in sections titles. (#1043)
+</p>
+</li>
+<li>
+<p>
+Show committer date by default in the date column. (#294)
+</p>
+</li>
+<li>
+<p>
+Update utf8proc to v2.10.0, supporting Unicode 16.
+</p>
+</li>
+<li>
+<p>
+Only show stash, notes and prefetch in the refs view when
+   invoked with <code>tig refs --all</code>. (#1359)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_10">tig-2.5.10</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix <code>stat-*</code> coloring file names in <code>tig status</code> instead of just
+   markers (regression in 2.5.9). (#1326)
+</p>
+</li>
+<li>
+<p>
+Fix keybinding with +[cmd] not triggering view refreshing. (#1324)
+</p>
+</li>
+<li>
+<p>
+Fix reopening the blame view from the main view.
+</p>
+</li>
+<li>
+<p>
+Fix editing when stdin is redirected. (#1330)
+</p>
+</li>
+<li>
+<p>
+Fix compilation warnings with ncurses 6.5.
+</p>
+</li>
+<li>
+<p>
+Make <code>Ctrl-C</code> to kill only the command running in the foreground. (#1331)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_9">tig-2.5.9</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Update utf8proc to v2.9.0, supporting Unicode 15.1.
+</p>
+</li>
+<li>
+<p>
+Also use lightweight tags in the Refs line of the diff view. (#1235)
+</p>
+</li>
+<li>
+<p>
+Support %(text) in all views with a text column. (#1275)
+</p>
+</li>
+<li>
+<p>
+Use HTTPS for GitHub clone URLs. (#1310)
+</p>
+</li>
+<li>
+<p>
+Move default log view options to tigrc.
+</p>
+</li>
+<li>
+<p>
+Allow to go to stage view without Enter. (#1284)
+</p>
+</li>
+<li>
+<p>
+Add new "prefetch" reference type for refs created by <code>git maintenance</code>
+   (hidden in default config). (#1318)
+</p>
+</li>
+<li>
+<p>
+Show the selected commit in the blame view title window.
+</p>
+</li>
+<li>
+<p>
+Improve the blob view experience.
+</p>
+</li>
+<li>
+<p>
+Clear keybinding from all keymaps (unbind) with <code>bind generic &lt;key&gt; none</code>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix "dangling pointer" warning. (#1268)
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t use array size in function arguments. (#1269)
+</p>
+</li>
+<li>
+<p>
+Fix rpmbuild -ta. (#1276)
+</p>
+</li>
+<li>
+<p>
+Initialise struct timezone. (#1291)
+</p>
+</li>
+<li>
+<p>
+Fix NULL dereference at startup. (#1293)
+</p>
+</li>
+<li>
+<p>
+Enforce a blank before view scroll percentage.
+</p>
+</li>
+<li>
+<p>
+Fix refresh-mode periodic not updating branch labels. (#1270)
+</p>
+</li>
+<li>
+<p>
+Fix display non-ascii character. (#1299)
+</p>
+</li>
+<li>
+<p>
+Fix readline echo when stdin is redirected. (#1229)
+</p>
+</li>
+<li>
+<p>
+Fix tig blame --reverse. (#1300)
+</p>
+</li>
+<li>
+<p>
+Fix status view lockup.
+</p>
+</li>
+<li>
+<p>
+Fix untracked changes and chunk staging behaviour in plain stage view.
+</p>
+</li>
+<li>
+<p>
+Reset state variables when selecting a commit with no reference.
+</p>
+</li>
+<li>
+<p>
+Fix parsing of <code>git ls-tree</code> for submodules. (#1282)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_8">tig-2.5.8</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Update utf8proc to v2.8.0, supporting Unicode 15.
+</p>
+</li>
+<li>
+<p>
+Support editing from the pager and the log (-p) views. (#1243)
+</p>
+</li>
+<li>
+<p>
+Adjust build for native Apple Silicon.
+</p>
+</li>
+<li>
+<p>
+Autoscroll the pager view while loading. (#1223)
+</p>
+</li>
+<li>
+<p>
+Automatically show next diff in the status view. (#413, #469)
+</p>
+</li>
+<li>
+<p>
+Replace <code>Unknown</code> author with <code>Not Committed Yet</code>.
+</p>
+</li>
+<li>
+<p>
+Allow use of regular expressions for coloring. (#1249)
+</p>
+</li>
+<li>
+<p>
+Add support for option word-diff-regex. (#1252)
+</p>
+</li>
+<li>
+<p>
+Include original blob name in temporary filename. (#1254)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use %(file_old) for old filename in the blame view. (#1226)
+</p>
+</li>
+<li>
+<p>
+Correctly report which version of libncurses was linked. (#1240, #1241)
+</p>
+</li>
+<li>
+<p>
+Fix stage view closing when holding the ] key. (#1245)
+</p>
+</li>
+<li>
+<p>
+Make tests work from a path with symlinks.
+</p>
+</li>
+<li>
+<p>
+Fix encoding of very long lines. (#1227)
+</p>
+</li>
+<li>
+<p>
+Fix diffstat color for tig log -p.
+</p>
+</li>
+<li>
+<p>
+Clean IO before closing a view or quitting.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_7">tig-2.5.7</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix running tests as root. (#1224)
+</p>
+</li>
+<li>
+<p>
+Fix parsing of status.showUntrackedFiles. (#1219)
+</p>
+</li>
+<li>
+<p>
+Avoid incorrect history path when $XDG_DATA_HOME is valid. (#1215, #1217)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_6">tig-2.5.6</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix <code>:goto &lt;tag&gt;</code>. (#1178)
+</p>
+</li>
+<li>
+<p>
+Fix typo in ui.c.
+</p>
+</li>
+<li>
+<p>
+Revert terminal hacks and workarounds. (#748, #943, #1180, #1182)
+</p>
+</li>
+<li>
+<p>
+Fix opening of an ambiguous ref in refs view.
+</p>
+</li>
+<li>
+<p>
+Fix search when view is loading.
+</p>
+</li>
+<li>
+<p>
+Use the full width for diffstat in the stage view.
+</p>
+</li>
+<li>
+<p>
+Improve escaping of variables in external commands.
+</p>
+</li>
+<li>
+<p>
+Fix cursor behaviour during staging. (#842, #1028)
+</p>
+</li>
+<li>
+<p>
+Fix navigation in split tree view.
+</p>
+</li>
+<li>
+<p>
+Enable textconv in the stage view.
+</p>
+</li>
+<li>
+<p>
+Enable textconv in the blame view and fix blame -L. (#978, #1189)
+</p>
+</li>
+<li>
+<p>
+Update lineno for untracked files. (#1192)
+</p>
+</li>
+<li>
+<p>
+Fix alignment of transliterated text. (#1195)
+</p>
+</li>
+<li>
+<p>
+Fix word diff in the stage, stash and blame views. (#1207)
+</p>
+</li>
+<li>
+<p>
+Fix reading the value of status.showUntrackedFiles. (#1211)
+</p>
+</li>
+<li>
+<p>
+Honor commit_title:no in view settings.
+</p>
+</li>
+<li>
+<p>
+Fix segfault with PCRE.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_5">tig-2.5.5</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Make word-diff a toggleable option. (#1119, #1125)
+</p>
+</li>
+<li>
+<p>
+Add Linux installation instructions. (#1121, #1126)
+</p>
+</li>
+<li>
+<p>
+Allow :back to work across separate blame views. (#1123, #1127)
+</p>
+</li>
+<li>
+<p>
+Add auto-refresh to log view. (#1128)
+</p>
+</li>
+<li>
+<p>
+Expose <code>%(file_old)</code>, useful for deleted and renamed files. (#1132)
+</p>
+</li>
+<li>
+<p>
+Enable jumping back in main view. (#628, #1138)
+</p>
+</li>
+<li>
+<p>
+Add PCRE (Perl Compatible Regular Expressions) support. (#1137, #1143)
+</p>
+</li>
+<li>
+<p>
+Pass command line args through to diff-files in status view. (#1152, #1155)
+</p>
+</li>
+<li>
+<p>
+Remove quotes from TIG_LS_REMOTE to allow inline shell commands. (#1160, #1161)
+</p>
+</li>
+<li>
+<p>
+Avoid pushing identical history state in main view.
+</p>
+</li>
+<li>
+<p>
+Replace useless strncpy to avoid compilation warning with GCC 8.
+</p>
+</li>
+<li>
+<p>
+Update utf8proc to v2.7.0.
+</p>
+</li>
+<li>
+<p>
+Update distclean rule to preserve tarball contents. (#1167, #1169)
+</p>
+</li>
+<li>
+<p>
+Add reference types stash and other. (#1160, #1172)
+</p>
+</li>
+<li>
+<p>
+Auto refresh view upon option change.
+</p>
+</li>
+<li>
+<p>
+Allow to toggle revision filtering. (#1173)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix null dereferences on unset format strings. (#1136, #1159)
+</p>
+</li>
+<li>
+<p>
+Fix invalid read in log_read. (#1128)
+</p>
+</li>
+<li>
+<p>
+Restore support for tig log --graph. (#1128)
+</p>
+</li>
+<li>
+<p>
+Further fix to fullscreen navigation.
+</p>
+</li>
+<li>
+<p>
+Fix blame when opened from an initial diff view. (#1135)
+</p>
+</li>
+<li>
+<p>
+Fix stash view when using tig --all or tig revs. (#1146, #1147)
+</p>
+</li>
+<li>
+<p>
+Avoiding null pointer dereference. (#1096)
+</p>
+</li>
+<li>
+<p>
+Fix navigation between chunks after splitting chunk. (#1101, #1162)
+</p>
+</li>
+<li>
+<p>
+Fix status line when toggling general options. (#1163, #1164)
+</p>
+</li>
+<li>
+<p>
+Honor reference-format = hide:tag in diff view. (#1168, #1170)
+</p>
+</li>
+<li>
+<p>
+Fix crash on :toggle file-args.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_4">tig-2.5.4</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add FreeBSD installation instructions. (#1093)
+</p>
+</li>
+<li>
+<p>
+Add TIG_EDITOR environment variable to configure editor. (#889, #1098)
+</p>
+</li>
+<li>
+<p>
+Enable mailmap by default to match git log&#8217;s behaviour. (#1104, #1105)
+</p>
+</li>
+<li>
+<p>
+Enable tilde expansion for diff-highlight. (#1107)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Escape variables with %% in external commands. (#1091, #1095)
+</p>
+</li>
+<li>
+<p>
+Fix parsing of -L argument. (#1100)
+</p>
+</li>
+<li>
+<p>
+Bugfix: smart-case does not work when search term contains a space. (#1108)
+</p>
+</li>
+<li>
+<p>
+Use ncursesw by default on Linux. (#920)
+</p>
+</li>
+<li>
+<p>
+Replace obsolete macro &#8216;AC_CONFIG_HEADER&#8217; in configure.ac.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_3">tig-2.5.3</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix autoconf checking for readline. (#1072)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when saving a view with no column.
+</p>
+</li>
+<li>
+<p>
+Reset view&#8594;parent when main view is promoted.
+</p>
+</li>
+<li>
+<p>
+Fix segfault when pressing Enter in a child main view.
+</p>
+</li>
+<li>
+<p>
+Restore lazy navigation.
+</p>
+</li>
+<li>
+<p>
+Format time_t values portably and fix other values too. (#1084, #1085)
+</p>
+</li>
+<li>
+<p>
+Fix loop when wrapping line with ISO-8859-1 character. (#1087, #1088)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_2">tig-2.5.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Change directory from the next argument, from now use <code>tig -C /path/to/repo</code>. (#1079)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Jump from blame to commit. (#355)
+</p>
+</li>
+<li>
+<p>
+Start blame of an uncommitted deleted line from HEAD so the line&#8217;s origin can be traced. (#1008, #1009)
+</p>
+</li>
+<li>
+<p>
+Add line-graphics = auto. (#834, #1019)
+</p>
+</li>
+<li>
+<p>
+Allow maxwidth to be expressed in % of the view width. (#1021)
+</p>
+</li>
+<li>
+<p>
+Pass stash args through. (#1022, #1030)
+</p>
+</li>
+<li>
+<p>
+Make build work on IBM i. (#1051, #1052)
+</p>
+</li>
+<li>
+<p>
+Restore fullscreen navigation. (#1053)
+</p>
+</li>
+<li>
+<p>
+Update utf8proc to v2.6.1.
+</p>
+</li>
+<li>
+<p>
+Add some range so control chars <sup>^ and </sup>_ are also supported. (#1041, #1058)
+</p>
+</li>
+<li>
+<p>
+Disable ncurses extended key values so that esc-codes can be used. (#1046, #1049)
+</p>
+</li>
+<li>
+<p>
+Use id column for commit id only. (#1025, #1056)
+</p>
+</li>
+<li>
+<p>
+Some minor updates for scrolling and for a double-click in diff. (#1060)
+</p>
+</li>
+<li>
+<p>
+Add scroll-half-page-up and scroll-half-page-down actions. (#531, #1075)
+</p>
+</li>
+<li>
+<p>
+Allow to generate a compilation database. (#1064)
+</p>
+</li>
+<li>
+<p>
+New command stage-update-part.
+</p>
+</li>
+<li>
+<p>
+The line number before a diff was applied is exposed as <code>%(lineno_old)</code>. (#1081)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix wrapping of lines with multibyte characters. (#988)
+</p>
+</li>
+<li>
+<p>
+Improve highlighting of search with $ regex. (#1000)
+</p>
+</li>
+<li>
+<p>
+Update tracking branch when refreshing status view. (#1015)
+</p>
+</li>
+<li>
+<p>
+Fix vertical lines in Putty with UTF-8 graphics. (#981, #983)
+</p>
+</li>
+<li>
+<p>
+Fix parsing of three-way chunk headers with extra dashes.
+</p>
+</li>
+<li>
+<p>
+Update tracking branch when refreshing status view. (#1015, #1020)
+</p>
+</li>
+<li>
+<p>
+Handle filename with space in diff view. (#1035)
+</p>
+</li>
+<li>
+<p>
+The stash view requires a working tree.
+</p>
+</li>
+<li>
+<p>
+Replace useless strncpy to avoid compilation warning. (#1036)
+</p>
+</li>
+<li>
+<p>
+Zsh completion fixes. (#940, #1047)
+</p>
+</li>
+<li>
+<p>
+Handle undefined __git_complete. (#1011, #1055)
+</p>
+</li>
+<li>
+<p>
+Fix help messages for half-page and page up. (#1054)
+</p>
+</li>
+<li>
+<p>
+Let <code>-S</code>, <code>-G</code> and <code>--grep=</code> pattern override readline history.
+</p>
+</li>
+<li>
+<p>
+Fix bash completion issue with worktrees (#1018).
+</p>
+</li>
+<li>
+<p>
+Fix parsing of commit line from <code>git log --left-right</code> output in pager view.
+</p>
+</li>
+<li>
+<p>
+Fix %(lineno) computation for hunk postimages that span only one line. (#1062)
+</p>
+</li>
+<li>
+<p>
+Align relative-compact dates to the right. (#1067)
+</p>
+</li>
+<li>
+<p>
+Fix empty split diff view when navigating quickly in the stash view.
+</p>
+</li>
+<li>
+<p>
+Avoid depending on wcwidth in test by removing Variation Selector. (#1065)
+</p>
+</li>
+<li>
+<p>
+Open the blob view with the cursor correctly positioned.
+</p>
+</li>
+<li>
+<p>
+Update %(text) when navigating diff contents. (#1082)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_1">tig-2.5.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+bash/zsh completion: reimplement and decrease runtime by factor 1863. (#795)
+</p>
+</li>
+<li>
+<p>
+Add binding to reflog view to toggle reference display.
+</p>
+</li>
+<li>
+<p>
+Fail if tig is given an invalid or ambiguous ref. (#980)
+</p>
+</li>
+<li>
+<p>
+Make tig process-group leader an option. (#986, #951)
+</p>
+</li>
+<li>
+<p>
+Handle GIT_WORK_TREE environment variable.
+</p>
+</li>
+<li>
+<p>
+The blame view requires a working tree.
+</p>
+</li>
+<li>
+<p>
+Fix use of deprecated vwprintw() function.
+</p>
+</li>
+<li>
+<p>
+Update utf8proc to v2.5.0.
+</p>
+</li>
+<li>
+<p>
+Add --word-diff=plain colorizing support. (#221)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix segmentation fault. (#971)
+</p>
+</li>
+<li>
+<p>
+Fix cursor position after "Move to parent" in blame view. (#973)
+</p>
+</li>
+<li>
+<p>
+Fix crash on adding a line to a view. (#523)
+</p>
+</li>
+<li>
+<p>
+Fix memory leak in diff unit.
+</p>
+</li>
+<li>
+<p>
+Fix loop after refresh or change in refs/main split view. (#991)
+</p>
+</li>
+<li>
+<p>
+Fix occasional crash on custom key bindings. (#1001)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_5_0">tig-2.5.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Single file view enters blame mode on "b". (#804)
+</p>
+</li>
+<li>
+<p>
+Show untracked files in the default view. (#762)
+</p>
+</li>
+<li>
+<p>
+Disable graph if log.follow is enabled and there is only one pathspec. (#881)
+</p>
+</li>
+<li>
+<p>
+Disable graph for author searches.
+</p>
+</li>
+<li>
+<p>
+git_colors: interpret <em>ul</em> as <em>underline</em>.
+</p>
+</li>
+<li>
+<p>
+Add refname variable. (#900)
+</p>
+</li>
+<li>
+<p>
+Add -C option to specify the working directory. (#570)
+</p>
+</li>
+<li>
+<p>
+Improve behaviour of auto and periodic refresh modes. (#389, #441, #482, #794, #888, #932)
+</p>
+</li>
+<li>
+<p>
+Add support for repos created with git --work-tree. (#872)
+</p>
+</li>
+<li>
+<p>
+Add diff-highlight to pager mode.
+</p>
+</li>
+<li>
+<p>
+Show annotated commits in main view. (#819)
+</p>
+</li>
+<li>
+<p>
+Introduce reflog view. (#538)
+</p>
+</li>
+<li>
+<p>
+Add option to start with cursor on HEAD commit. (#755)
+</p>
+</li>
+<li>
+<p>
+Support combined diffs with more than 2 parents.
+</p>
+</li>
+<li>
+<p>
+Improve how a toggle option value is shown on the status line. (#879)
+</p>
+</li>
+<li>
+<p>
+Add options to filter refs output. (#694)
+</p>
+</li>
+<li>
+<p>
+Update utf8proc to v2.4.0. (#961)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix garbled cursor line with older ncurses versions.
+</p>
+</li>
+<li>
+<p>
+Fix diff highlighting of removed lines starting with&#8201;&#8212;&#8201;and added lines
+   starting with ++. (#871, #875)
+</p>
+</li>
+<li>
+<p>
+Fix loop when displaying search result if regex matches an empty string. (#866)
+</p>
+</li>
+<li>
+<p>
+Add synchronous command description in tigrc.
+</p>
+</li>
+<li>
+<p>
+Fix parsing of git rev-parse output. (#884)
+</p>
+</li>
+<li>
+<p>
+Propagate --first-parent to diff arguments. (#861)
+</p>
+</li>
+<li>
+<p>
+Use proper type for hash table size. (#858)
+</p>
+</li>
+<li>
+<p>
+Fix incorrect cppcheck warning about realloc() use.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t shift signed int by 31 bits.
+</p>
+</li>
+<li>
+<p>
+Fix Vim going background after running Tig outside of a git repository. (#906)
+</p>
+</li>
+<li>
+<p>
+make-builtin-config: use "read -r". (#912)
+</p>
+</li>
+<li>
+<p>
+Fix segfaults with readline 8.0. (#893)
+</p>
+</li>
+<li>
+<p>
+Reset state before closing stage view automatically.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t use a child view as previous view.
+</p>
+</li>
+<li>
+<p>
+Force reload of VIEW_FLEX_WIDTH views only when needed.
+</p>
+</li>
+<li>
+<p>
+Combined diff uses @@@ as hunk marker.
+</p>
+</li>
+<li>
+<p>
+Fix memory leak induced by <em>tig grep</em>.
+</p>
+</li>
+<li>
+<p>
+Fix memory leak in main view.
+</p>
+</li>
+<li>
+<p>
+Exit gracefully if refs view was defined without ref column. (#897)
+</p>
+</li>
+<li>
+<p>
+Fix pager view not moving up when child view is open.
+</p>
+</li>
+<li>
+<p>
+make-builtin-config: Fix unportable sed usage in read_tigrc().
+</p>
+</li>
+<li>
+<p>
+Properly detect combined diffs. (#942)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_4_1">tig-2.4.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add <code>CURSES_CFLAGS</code> to <code>CPPFLAGS</code>. (#856, Linuxbrew/homebrew-core#8440)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_4_0">tig-2.4.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add <em>send-child-enter</em> option to control interaction with child views. (#791)
+</p>
+</li>
+<li>
+<p>
+Update make config defaults for Cygwin to ncurses6. (#792)
+</p>
+</li>
+<li>
+<p>
+Build against netbsd-curses. (#789)
+</p>
+</li>
+<li>
+<p>
+Change the blame view to render more like <code>git blame</code>. (#812)
+</p>
+</li>
+<li>
+<p>
+Improve worktree and submodule support. (#459, #781, #783)
+</p>
+</li>
+<li>
+<p>
+Support running Tig via a Git alias. (#763)
+</p>
+</li>
+<li>
+<p>
+Use ISO-8601 letters for short relative dates. (#759, #760)
+</p>
+</li>
+<li>
+<p>
+Change date formatting to show time zones by default. (#428, #811)
+</p>
+</li>
+<li>
+<p>
+Use utf8proc to handle Unicode characters. (#827)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix <code>file(1)</code> argument on Linux used for resolving encodings. (#788)
+</p>
+</li>
+<li>
+<p>
+Fix underflow in the file search. (#800, #801)
+</p>
+</li>
+<li>
+<p>
+Fix line numbers in grep view when scrolled. (#813)
+</p>
+</li>
+<li>
+<p>
+Pass command line args through to the stage view. (#569, #823)
+</p>
+</li>
+<li>
+<p>
+Fix resource leak. (#780)
+</p>
+</li>
+<li>
+<p>
+Fix various compiler warnings and pointer arithmetic. (#799, #803)
+</p>
+</li>
+<li>
+<p>
+Workaround potential null pointer dereferences. (#824)
+</p>
+</li>
+<li>
+<p>
+Bind to single and double quotes by using the <strong>&lt;SingleQuote&gt;</strong> and
+   <strong>&lt;DoubleQuote&gt;</strong> key mappings. (#821)
+</p>
+</li>
+<li>
+<p>
+Make Tig the process-group leader and clean child processes. (#828, #837)
+</p>
+</li>
+<li>
+<p>
+Fix sh compatibility in <code>contrib/tig-pick</code>. (#832)
+</p>
+</li>
+<li>
+<p>
+Fix incorrect behaviour of up and down keys in diff view when opened from
+   diff preview. (#802, #835)
+</p>
+</li>
+<li>
+<p>
+Open the stage view when maximizing a split diff view of (un)staged changes.
+   (#836)
+</p>
+</li>
+<li>
+<p>
+Use fully qualified reference name for tags when conflicting with branch
+   name. (#746, #787, #849)
+</p>
+</li>
+<li>
+<p>
+Fix resize not working after entering command. (#845) (#846)
+</p>
+</li>
+<li>
+<p>
+Use stack allocated memory to handle <code>TIG_LS_REMOTE</code>. (#839)
+</p>
+</li>
+<li>
+<p>
+Fix deleted file mode line remains highlighted after hovering in diff or stage view. (#851)
+</p>
+</li>
+<li>
+<p>
+Fix <code>TIG_LS_REMOTE</code> not working with git-ls-remote(1). (#853, #854)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_3_3">tig-2.3.3</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Revert "Handle \n like \r (#758)". (GH #769)
+</p>
+</li>
+<li>
+<p>
+Fix GH #164 by catching SIGHUP.
+</p>
+</li>
+<li>
+<p>
+Change <code>refs_tags</code> type to <code>size_t</code>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_3_2">tig-2.3.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix busy loop detection to handle large repos. (GH #164)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_3_1">tig-2.3.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Restore TTY attributes. (GH #725)
+</p>
+</li>
+<li>
+<p>
+Handle <code>\n</code> like <code>\r</code>. (GH #758)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add workaround that detects busy loops when Tig loses the TTY. This may
+   happen if Tig does not receive the HUP signal (e.g. when started with
+   <code>nohup</code>). (GH #164)
+</p>
+</li>
+<li>
+<p>
+Fix compatibility with ncurses-5.4 which caused copy-pasting to not work
+   in the prompt. (GH #767)
+</p>
+</li>
+<li>
+<p>
+tig(1): document correct environment variable. (GH #752)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_3_0">tig-2.3.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The <code>width</code> setting on the <code>status</code>, <code>text</code> and <code>commit-title</code> columns was
+   never applied and has been removed. (GH #617)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Improve load performance by throttling screen updates. (GH #622, #629)
+</p>
+</li>
+<li>
+<p>
+Speed up graph rendering. (GH #638)
+</p>
+</li>
+<li>
+<p>
+Enable scroll optimizations for Terminal.app and iTerm2. (GH #637)
+</p>
+</li>
+<li>
+<p>
+Improve the test suite portability to not depend on GNU sed. (GH #609, #614)
+</p>
+</li>
+<li>
+<p>
+Make build reproducible. (<a href="https://reproducible-builds.org/">https://reproducible-builds.org/</a>) (GH #613)
+</p>
+</li>
+<li>
+<p>
+Enable binding to more symbolic keys and keys with control modifier:
+   <code>F13</code>-<code>F19</code>, <code>ShiftLeft</code>, <code>ShiftRight</code>, <code>ShiftDel</code>, <code>ShiftHome</code>, <code>ShiftEnd</code>,
+   <code>ShiftTab</code>, <code>Ctrl-C</code>, <code>Ctrl-V</code>, <code>Ctrl-S</code>, and <code>Ctrl-@</code>. (GH #314, #619, #642)
+</p>
+</li>
+<li>
+<p>
+Persist readline history to <code>~/.tig_history</code> or <code>$XDG_DATA_HOME/tig/history</code>.
+   Use <code>history-size</code> to control the number of entries to save. (GH #620, #713,
+   #714, #718)
+</p>
+</li>
+<li>
+<p>
+Preload last search from persistent history. (GH #630)
+</p>
+</li>
+<li>
+<p>
+Add <code>view-close-no-quit</code> action, unbound by default. (GH #607)
+</p>
+</li>
+<li>
+<p>
+Add <code>mouse-wheel-cursor</code> option (off by default) when set to true causes
+   wheel actions to prefer moving the cursor instead of scrolling. (GH #608)
+</p>
+</li>
+<li>
+<p>
+Add <code>truncation-delimiter</code> option, set to <code>~</code> by default. (GH #646)
+</p>
+</li>
+<li>
+<p>
+Add <code>-q</code> parameter to <code>source</code> for "source-if-present". (GH #612)
+</p>
+</li>
+<li>
+<p>
+Add <code>:echo</code> prompt command to display text in the status bar. (GH #626, #636)
+</p>
+</li>
+<li>
+<p>
+Make <code>diff-highlight</code> colors configurable. (GH #625, #633)
+</p>
+</li>
+<li>
+<p>
+Let Ctrl-C exit Y/N dialog, menu prompts and the file finder. (GH #632, #648)
+</p>
+</li>
+<li>
+<p>
+Hide cursor unless at textual prompt. (GH #643)
+</p>
+</li>
+<li>
+<p>
+Expand tilde (<em>~</em>) in <code>:script</code> paths. (GH #674)
+</p>
+</li>
+<li>
+<p>
+Show single-line output of external command in status bar. (GH #200, #557,
+   #678)
+</p>
+</li>
+<li>
+<p>
+Disable the graph when <code>--no-merges</code> is passed. (GH #687)
+</p>
+</li>
+<li>
+<p>
+Print backtraces on segfault in debug mode.
+</p>
+</li>
+<li>
+<p>
+Ignore script lines starting with <code>#</code> (comment). (GH #705)
+</p>
+</li>
+<li>
+<p>
+Complete <code>repo:*</code> variables when readline is enabled. (GH #702)
+</p>
+</li>
+<li>
+<p>
+Incorporate XTerm&#8217;s <code>wcwidth.c</code> to find Unicode widths. (GH #691)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix graph display issues. (GH #419, #638)
+</p>
+</li>
+<li>
+<p>
+Fix and improve rendering of Unicode characters. (GH #330, #621, #644, #682)
+</p>
+</li>
+<li>
+<p>
+Handle hyphenated directory names when listing content. (GH #602)
+</p>
+</li>
+<li>
+<p>
+Do not jump to next match when cancelling the search prompt. (GH #627)
+</p>
+</li>
+<li>
+<p>
+Fix clearing of the status line after <code>Ctrl-C</code>. (GH #623, #649)
+</p>
+</li>
+<li>
+<p>
+Fix handling of width on line-number and trimmed width of 1. (GH #617)
+</p>
+</li>
+<li>
+<p>
+Set cursor position when not updating prompt contents. (GH #647)
+</p>
+</li>
+<li>
+<p>
+Erase status line at exit time for users without altscreen-capable terminals.
+   (GH #589)
+</p>
+</li>
+<li>
+<p>
+Fix unexpected keys when restoring from suspend (<code>Ctrl-Z</code>). (GH #232)
+</p>
+</li>
+<li>
+<p>
+contrib/vim.tigrc: Also bind G in the main as a workaround for limitations of
+   the <code>none</code> action. (GH #594, #599)
+</p>
+</li>
+<li>
+<p>
+Only override <code>blame-options</code> when commands are given and fix parsing of
+   <code>-C</code>. (GH #597)
+</p>
+</li>
+<li>
+<p>
+Fix diff name discovery to better handle prefixes.
+</p>
+</li>
+<li>
+<p>
+Interpret button5 as wheel-down. (GH #321, #606)
+</p>
+</li>
+<li>
+<p>
+Fix <code>back</code> / <code>parent</code> in tree view. (GH #641)
+</p>
+</li>
+<li>
+<p>
+Fix memory corruption in <code>concat_argv</code> and file finder. (GH #634, #655)
+</p>
+</li>
+<li>
+<p>
+Fix reading from stdin for <code>tig show</code>.
+</p>
+</li>
+<li>
+<p>
+Document problem of outdated system-wide <code>tigrc</code> files in Homebrew. (GH #598)
+</p>
+</li>
+<li>
+<p>
+Repaint the display when toggling <code>line-graphics</code>. (GH #527)
+</p>
+</li>
+<li>
+<p>
+Fix custom date formatting support longer strings. (GH #522)
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t segfault on ":exec" irregular args. (GH #686)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when calling htab_empty. (GH #663, #745)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_2_2">tig-2.2.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Upgrade instructions:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The <code>status-untracked-dirs</code> option was renamed to
+   <code>status-show-untracked-dirs</code> to match the new <code>status-show-untracked-files</code>
+   option.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use <code>diff-options</code> when preparing the diff in the stage view to make the diff
+   state configurable. (GH #545)
+</p>
+</li>
+<li>
+<p>
+Add <em>status-show-untracked-files</em> option mirroring Git&#8217;s
+   <em>status.showUntrackedFiles</em> to toggle display of untracked files.  in the
+   status view. On by default. (GH #562)
+</p>
+</li>
+<li>
+<p>
+Update <code>ax_with_curses.m4</code> and use <code>pkg-config</code> to detect. (GH #546)
+</p>
+</li>
+<li>
+<p>
+Add <code>tig-pick</code> script for using Tig as a commit picker. (GH #575, #580)
+</p>
+</li>
+<li>
+<p>
+Add "smart case" option (<em>set ignore-case = smart-case</em>) to ignore case when
+   the search string is lower-case only. (GH #320, #579)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix author ident cache being keyed by email only. (GH #424, #526, #547)
+</p>
+</li>
+<li>
+<p>
+Fix periodic refresh mode to properly detect ref changes. (GH #430, #591)
+</p>
+</li>
+<li>
+<p>
+Add workaround for detecting failure to start the diff-highlight process.
+</p>
+</li>
+<li>
+<p>
+Show diffs in the stash view when <code>set mailmap = true</code>. (GH #556)
+</p>
+</li>
+<li>
+<p>
+Fix parsing of git-log revision arguments, such as <code>--exclude=...</code> in
+   conjunction with <code>--all</code>. (GH #555)
+</p>
+</li>
+<li>
+<p>
+Fix diff stat parsing for binary copies.
+</p>
+</li>
+<li>
+<p>
+Fix crash when resizing terminal while search is in progress. (GH #515, #550)
+</p>
+</li>
+<li>
+<p>
+Fix argument filtering to pass more arguments through to Git.
+</p>
+</li>
+<li>
+<p>
+Check for termcap support in split tinfo libs. (GH #568, #585)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_2_1">tig-2.2.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Tarballs should now be downloaded from GitHub. Either go to
+<a href="https://github.com/jonas/tig/releases">https://github.com/jonas/tig/releases</a> or use the following pattern:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>https://github.com/jonas/tig/releases/download/tig-VERSION/tig-VERSION.tar.gz</code></pre>
+</div></div>
+<div class="paragraph"><p>MD5 checksums can be found at:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>https://github.com/jonas/tig/releases/download/tig-VERSION/tig-VERSION.tar.gz.md5</code></pre>
+</div></div>
+<div class="paragraph"><p>Similarly, the home page is now also on GitHub at <a href="https://jonas.github.io/tig/">https://jonas.github.io/tig/</a>.
+A big thanks to Simon L. B. Nielsen for generously hosting Tig on nitro.dk!</p></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Support Git&#8217;s <em>diff-highlight</em> program when <code>diff-highlight</code> is set to either
+   true or the path of the script to use for post-processing.
+</p>
+</li>
+<li>
+<p>
+Add navigation between merge commits. (GH #525)
+</p>
+</li>
+<li>
+<p>
+Add <em>A</em> as a binding to apply a stash without dropping it.
+</p>
+</li>
+<li>
+<p>
+Bind <em>Ctrl-D</em> and <em>Ctrl-U</em> to half-page movements by default.
+</p>
+</li>
+<li>
+<p>
+manual: Mention how to change default Up/Down behavior in diff view.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Reorganize checking of libraries for termcap functions.
+</p>
+</li>
+<li>
+<p>
+Fix <code>:goto &lt;id&gt;</code> error message.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_2">tig-2.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Note that all user-defined commands are now executed at the repository root
+   instead of whatever subdirectory Tig was started in. (GH #412)
+</p>
+</li>
+<li>
+<p>
+Remove <code>cmdline-args</code> option to avoid problems where setting it in <code>~/.tigrc</code>
+   potentially breaks other views due to its "context-sensitive" nature, where
+   a <code>git-log</code> option maybe cause <code>git-grep</code> to fail. (GH #431)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use .mailmap to show canonical name and email addresses, off by default.
+   Add <code>set mailmap = yes</code> to <code>~/.tigrc</code> to enable. (GH #411)
+</p>
+</li>
+<li>
+<p>
+Highlight search results, configurable via <code>search-result</code> color. (GH #493)
+</p>
+</li>
+<li>
+<p>
+Wrap around when searching, configurable via <code>wrap-search</code> setting.
+</p>
+</li>
+<li>
+<p>
+Populate <code>%(file)</code> with file names from diff stat. (GH #404)
+</p>
+</li>
+<li>
+<p>
+<code>tig --merge</code> implies <code>--boundary</code> similar to gitk.
+</p>
+</li>
+<li>
+<p>
+Expose repository variables to external commands, e.g. <code>%(repo:head)</code> gives the
+   branch name of the current HEAD and <code>%(repo:cdup)</code> for the repo root path.
+</p>
+</li>
+<li>
+<p>
+Add <code>make uninstall</code>. (GH #417)
+</p>
+</li>
+<li>
+<p>
+Add ZSH completion file (based on Bash completion) (GH #433)
+</p>
+</li>
+<li>
+<p>
+Expose the text of the currently selected line as the %(text) (GH #457)
+</p>
+</li>
+<li>
+<p>
+Allow users to specify rev arguments to blame (GH #439)
+</p>
+</li>
+<li>
+<p>
+Update OSX make config to find brew installed ncurses
+</p>
+</li>
+<li>
+<p>
+Add sample git-flow keybinding (GH #421)
+</p>
+</li>
+<li>
+<p>
+Add chocolate theme (GH #432)
+</p>
+</li>
+<li>
+<p>
+Show stash diffs. (GH #328)
+</p>
+</li>
+<li>
+<p>
+Make user tigrc location configurable. (GH #479)
+</p>
+</li>
+<li>
+<p>
+Compact relative date display mode. (GH #331)
+</p>
+</li>
+<li>
+<p>
+Add date column option controlling whether to show local date.
+</p>
+</li>
+<li>
+<p>
+Move to parent commit in the main view. (GH #388)
+</p>
+</li>
+<li>
+<p>
+Add <code>:goto &lt;rev&gt;</code> prompt command to go to a <code>git-rev-parse`d revision, e.g.
+   `:goto some/branch</code> or <code>:goto %(commit)^2</code>.
+</p>
+</li>
+<li>
+<p>
+Respect the XDG standard for configuration files. (GH #513)
+</p>
+</li>
+<li>
+<p>
+Show tracking information in <code>tig status</code> (GH #504)
+</p>
+</li>
+<li>
+<p>
+Resolve diff paths when <code>diff.noprefix</code> is true. (GH #487, #488)
+</p>
+</li>
+<li>
+<p>
+Support for custom <code>strftime(3)</code> date formats, e.g.:
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>set main-view-date = custom
+set main-view-date-format = "%Y-%m-%d"</code></pre>
+</div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Prevent staged rename from displaying unstaged changes (GH #472, #491)
+</p>
+</li>
+<li>
+<p>
+Fix corrupt chunk header during staging of single lines. (GH #410)
+</p>
+</li>
+<li>
+<p>
+Fix out of bounds read in graph-v2 module. (GH #402)
+</p>
+</li>
+<li>
+<p>
+Add currently checked out branch to <code>%(branch)</code>. (GH #416)
+</p>
+</li>
+<li>
+<p>
+Size diff stats correctly for split views.
+</p>
+</li>
+<li>
+<p>
+Fix <code>git-worktree</code> support by using <code>git-show-ref</code>. (GH #437)
+</p>
+</li>
+<li>
+<p>
+Add currently checked out branch to <code>%(branch)</code> (GH #416)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when hitting return in empty file search (GH #464)
+</p>
+</li>
+<li>
+<p>
+Remove separator on horizontal split when switching from vertical split
+</p>
+</li>
+<li>
+<p>
+Do not expand <code>--all</code> when parsing <code>%(revargs)</code> (GH #442, #462)
+</p>
+</li>
+<li>
+<p>
+Fix exit when the main view is reloaded due to option toggling. (GH #470)
+</p>
+</li>
+<li>
+<p>
+Expand all whitespace and control characters to spaces. (GH #485)
+</p>
+</li>
+<li>
+<p>
+Restore ability to unbind a default keybinding with <code>none</code>. (GH #483)
+</p>
+</li>
+<li>
+<p>
+Fix blob view to honor the <code>wrap-lines</code> setting.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_1_1">tig-2.1.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add support for key combos. (GH #67)
+</p>
+</li>
+<li>
+<p>
+See <code>contrib/vim.tigrc</code> for Vim-like keybindings. (GH #273, #351)
+</p>
+</li>
+<li>
+<p>
+Add GitHub inspired file finder to search for and open any file. (GH #342)
+</p>
+</li>
+<li>
+<p>
+Add <code>search</code> keymap for navigating file finder search results.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix display of multiple references per commit. (GH #390, #391)
+</p>
+</li>
+<li>
+<p>
+Sync the prompt&#8217;s cursor position with readline&#8217;s internal position. (GH #396)
+</p>
+</li>
+<li>
+<p>
+Keep unstaged changes view open after an staging command. (GH #399)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_1">tig-2.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Improve C99 compliance so Tig compiles with the native compilers on
+   Solaris (SunStudio cc) and AIX (xlc). (GH #380)
+</p>
+</li>
+<li>
+<p>
+Add move-half-page-up and move-half-page-down actions. (GH #323)
+</p>
+</li>
+<li>
+<p>
+Preserve the cursor position when changing the diff context.
+</p>
+</li>
+<li>
+<p>
+Show <em>Unstaged changes</em> above <em>Staged changes</em> in the main view. (GH #383)
+</p>
+</li>
+<li>
+<p>
+Add <code>:exec &lt;flags&gt;&lt;args...&gt;</code> prompt command to execute commands.
+</p>
+</li>
+<li>
+<p>
+Add shorthand for changing the view settings of a single column,
+   eg. <code>set main-view-author = short</code>. (GH #318)
+</p>
+</li>
+<li>
+<p>
+Show better diff context info in the stage view.
+</p>
+</li>
+<li>
+<p>
+Add <code>%(lineno)</code> state variable. (GH #304)
+</p>
+</li>
+<li>
+<p>
+Use hash table to speed up refs lookup. (GH #350)
+</p>
+</li>
+<li>
+<p>
+Show the file path in the blob view when available.
+</p>
+</li>
+<li>
+<p>
+Use <code>set commit-order = default</code> to use Git&#8217;s default commit order, even when
+   the commit graph is enabled. The option will turn off automatic enabling of
+   <code>--topo-order</code> when the graph is shown in the main view. (GH #310, #324)
+</p>
+</li>
+<li>
+<p>
+Speed up the diff view in large repos by loading git-describe info after the
+   diff content has been read. (GH #324)
+</p>
+</li>
+<li>
+<p>
+Add the old graph rendering as an option. (GH #310, #324)
+</p>
+</li>
+<li>
+<p>
+Add <code>main-options</code> setting for specifying default main view options.
+   Example: <code>set main-options = --max-count=1000</code>. (GH #368)
+</p>
+</li>
+<li>
+<p>
+See <code>contrib/large-repo.tigrc</code> for settings that will help to speed up Tig in
+   large repos. (GH #368)
+</p>
+</li>
+<li>
+<p>
+Add <code>:save-options &lt;file&gt;</code> prompt command to save config to file. (GH #315)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Update manual to reflect default keybinding changes. (GH #325)
+</p>
+</li>
+<li>
+<p>
+Fix graph support for <code>--first-parent</code>. (GH #326)
+</p>
+</li>
+<li>
+<p>
+Fix off-by-one error when opening editor from the grep view.
+</p>
+</li>
+<li>
+<p>
+Fix status on-branch information.
+</p>
+</li>
+<li>
+<p>
+Fix main view to handle the case when git-log doesn&#8217;t find any commits.
+</p>
+</li>
+<li>
+<p>
+Fix corner case when parsing diff chunk when lines information is missing.
+</p>
+</li>
+<li>
+<p>
+Ensure main view changes commits are shown right before the current HEAD.
+</p>
+</li>
+<li>
+<p>
+Fix rendering of boundary commits.
+</p>
+</li>
+<li>
+<p>
+Fix compilation with GNU Make 3.80 by removing <code>$(abspath)</code>. (GH #362)
+</p>
+</li>
+<li>
+<p>
+Fix config parsing to support shell-like quoting in user-defined command,
+   e.g. <code>bind generic &lt;Ctrl-f&gt; :!git log -G"%(prompt Prompt: )"</code> (GH #371)
+</p>
+</li>
+<li>
+<p>
+Make diff meta information colors more consistent with Git. (GH #375)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when updating changes in a maximized stage view opened via the
+   main view. (GH #376)
+</p>
+</li>
+<li>
+<p>
+Handle line number configs where the interval is not specified. (GH #378)
+</p>
+</li>
+<li>
+<p>
+Fix display of error messages during startup. (GH #385)
+</p>
+</li>
+<li>
+<p>
+Show untracked files outside the current directory like git-status. (GH #230)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_0_3">tig-2.0.3</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add <code>:save-display &lt;file&gt;</code> prompt command to save the current display.
+</p>
+</li>
+<li>
+<p>
+Add <code>:script &lt;file&gt;</code> prompt command for scripting the Tig UI.
+</p>
+</li>
+<li>
+<p>
+Add test framework and convert existing tests to use it.
+</p>
+</li>
+<li>
+<p>
+Add command-line option for starting in refs view: <code>tig refs</code>. (GH #309)
+</p>
+</li>
+<li>
+<p>
+Make blame commit ID colors stable across reloads. (GH #303)
+</p>
+</li>
+<li>
+<p>
+Increase blame ID and graph rendering color palette to 14 colors.
+</p>
+</li>
+<li>
+<p>
+New setting <em>split-view-width</em> controls the width for vertical splits. It
+   takes the width of the right-most view either as a number or a percentage.
+</p>
+</li>
+<li>
+<p>
+Expose settings holding command line argument lists: <code>file-args</code>, <code>rev-args</code>,
+   and <code>cmdline-args</code>. They are mainly intended for testing purposes but also
+   allows to change the filtering arguments dynamically. (GH #306)
+</p>
+</li>
+<li>
+<p>
+Add <code>log-options</code> setting for specifying default log view options.
+   Example: <code>set log-options = --pretty=fuller</code>.
+</p>
+</li>
+<li>
+<p>
+Use option specific view flags to reload view after <code>:set</code> commands.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Refresh the current view when returning from an external command and
+   <code>refresh-mode=after-command</code>. (GH #289)
+</p>
+</li>
+<li>
+<p>
+Fix readline completion.
+</p>
+</li>
+<li>
+<p>
+Fix <em>/</em> to <code>find-next</code> when readline support is enabled. (GH #302)
+</p>
+</li>
+<li>
+<p>
+Fix readline prompt to correctly handle UTF-8 characters.
+</p>
+</li>
+<li>
+<p>
+Add warnings for more obsolete actions and colors.
+</p>
+</li>
+<li>
+<p>
+Fix passing of commit IDS via stdin to the main view.
+</p>
+</li>
+<li>
+<p>
+Fix commit title overflow drawing for multibyte text. (GH #307)
+</p>
+</li>
+<li>
+<p>
+Fix installation directory permissions.
+</p>
+</li>
+<li>
+<p>
+Handle binary files matches reported by git-grep.
+</p>
+</li>
+<li>
+<p>
+Toggling of "args"-typed options without any arguments will clear the current
+   arguments. Example: <code>:toggle blame-options</code>.
+</p>
+</li>
+<li>
+<p>
+Detect custom <code>pretty.format</code> settings that break the log view and fallback
+   to use the <code>medium</code> format. (GH #225)
+</p>
+</li>
+<li>
+<p>
+Fix invocation of git-diff for the blame view&#8217;s line tracking. (GH #316)
+</p>
+</li>
+<li>
+<p>
+Fix blame completion of directory names. (GH #317)
+</p>
+</li>
+<li>
+<p>
+Fix display of conflicts in the main view when <em>show-changes</em> is enabled.
+</p>
+</li>
+<li>
+<p>
+Fix off-by-one error when displaying line numbers in the grep view.
+</p>
+</li>
+<li>
+<p>
+When showing the commit graph ensure that either topo, date or author-date
+   commit order is used. (Debian #757692) (GH #238)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_0_2">tig-2.0.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use git-status for diffing the index.
+</p>
+</li>
+<li>
+<p>
+Group toggle options together in the help view.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix refs, main and grep loading when <em>gui.encoding</em> is set. (GH #287)
+</p>
+</li>
+<li>
+<p>
+Ignore <em>gui.encoding</em> and <em>i18n.commitencoding</em> when set to <em>UTF-8</em>.
+</p>
+</li>
+<li>
+<p>
+Add work-around for missing strndup() on Mac OS X v10.6. (GH #286)
+</p>
+</li>
+<li>
+<p>
+Fix spurious abbreviation of author names. (GH #288)
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t show empty action groups in the help view.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_0_1">tig-2.0.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix compilation in watch.c.
+</p>
+</li>
+<li>
+<p>
+Fix parsing of key bindings mapped to <em>^</em> and <em>&lt;</em>. (GH #280, #282)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_2_0">tig-2.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Note to packagers:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add <code>.adoc</code> extension to AsciiDoc files so they show correctly on GitHub.
+   This includes <code>README</code>, <code>INSTALL</code>, and <code>NEWS</code> and files in <code>doc/</code> directory.
+</p>
+</li>
+<li>
+<p>
+<code>BUGS</code> file has been merged into <code>README.adoc</code>.
+</p>
+</li>
+<li>
+<p>
+Default keybindings have been moved to a system-level <code>tigrc</code> file, which is
+   installed to $++SYSCONFDIR++ by default. The content of the <code>tigrc</code> file is
+   included inside the binary as a fall-back. Pass <code>NO_BUILTIN_TIGRC=y</code> to not
+   include the system <code>tigrc</code> content and reduce the size of the binary.
+</p>
+</li>
+<li>
+<p>
+The example <code>contrib/tigrc</code> file (made obsolete by <code>tigrc</code>) has been removed.
+</p>
+</li>
+<li>
+<p>
+Source files have been moved to <code>src</code> and <code>include</code> and <code>tig.c</code> was split up.
+</p>
+</li>
+<li>
+<p>
+Build output is less verbose by default; use <code>make V=1</code> for old output.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+In preparation for key combo support, key mappings for symbolic keys (e.g.
+   <code>Up</code> and <code>Down</code>) must now start with <code>&lt;</code> and end with <code>&gt;</code>, e.g. <code>&lt;Up&gt;</code> and
+   <code>&lt;Down&gt;</code>. Furthermore, escape key combos must now use <code>&lt;Esc&gt;key</code> instead of
+   <code>^[key</code>, and control key mappings must now use <code>&lt;Ctrl-key&gt;</code> instead of
+   <code>^key</code>.
+</p>
+</li>
+<li>
+<p>
+Only use <em>diff-options</em> for the diff view and introduce <em>%(cmdlineargs)</em> to
+   hold non-file and non-revision flags passed on the command line. Affects all
+   user-defined commands that expect <em>%(diffargs)</em> to hold both <em>diff-options</em>
+   arguments and those passed on the command line. (GH #228)
+</p>
+</li>
+<li>
+<p>
+Remove built-in keybinding for <code>git gc</code>. Add the following line to <code>~/.tigrc</code>
+   to restore it: <code>bind generic G ?git gc</code>.
+</p>
+</li>
+<li>
+<p>
+To support view specific colors, <em>.</em> can no longer be used interchangeably
+   with <em>-</em> and <em>_</em> in settings names and in particular color names.
+</p>
+</li>
+<li>
+<p>
+Replace <em>stage-next</em> action with prompt command using a predefined search
+   (see below) and add binding (<code>@</code> by default) to also work in the diff view.
+</p>
+</li>
+<li>
+<p>
+Most view display options must now be set via the new <code>*-view</code> options in
+   tigrc. Existing options are no longer recognized, but a warning is shown.
+</p>
+</li>
+<li>
+<p>
+Remap default bindings to have more consistent convention: use lower-case
+   keys primarily for view switching and non-destructive actions, use upper-case
+   keys for view-specific actions including user-defined commands. To preserve
+   old default key bindings see <code>contrib/bindings-v1.x.tigrc</code>. (GH #257)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add mouse support: scroll view, click line to move cursor, double click line
+   (or click again) to "Enter" cursor line, e.g. open commit diff. Disabled by
+   default, since it makes text selection less intuitive. If you enable this
+   remember to hold down Shift (or Option on Mac) when selecting text.
+</p>
+</li>
+<li>
+<p>
+Rewrite and improve the rendering of the commit graph. (GH #144, #46)
+</p>
+</li>
+<li>
+<p>
+Add completion and history support to the prompt via readline. (GH #185)
+</p>
+</li>
+<li>
+<p>
+Options can be configured and toggled individually for each view. Use the new
+   view settings to configure the order and display options for each view
+   columns. See system tigrc and tigrc(5) for examples. (GH #89, #222)
+</p>
+</li>
+<li>
+<p>
+Add grep view as a front-end to git-grep(1): <code>tig grep -p strchr</code>. From
+   within Tig, the key for switching or grepping is bound to <em>g</em> by default.
+</p>
+</li>
+<li>
+<p>
+Rename <em>branch</em> view to <em>refs</em> view and show tags. (GH #134)
+</p>
+</li>
+<li>
+<p>
+Add main view pager mode that reads git-log&#8217;s <em>--pretty=raw</em> data
+   from stdin, e.g. <code>git reflog --pretty=raw | tig --pretty=raw</code>.
+</p>
+</li>
+<li>
+<p>
+Add support for <code>--graph</code> and highlight diff stats in the log view.
+</p>
+</li>
+<li>
+<p>
+Add default command bindings: <code>!</code> to delete branch, <code>!</code> to drop stash.
+</p>
+</li>
+<li>
+<p>
+Add <em>stage-split-chunk</em> action for splitting chunks in the stage view.
+   Bound to <em>\</em> by default. (GH #107)
+</p>
+</li>
+<li>
+<p>
+Add <em>back</em> action bound to <em>&lt;</em> by default, which will return the blame view
+   to the previous revision and line after moving e.g. to the parent. (GH #124)
+</p>
+</li>
+<li>
+<p>
+Auto-refresh views based on watched repository changes. Configure by setting
+   <code>refresh-mode</code> to <em>manual</em>, <em>auto</em>, <em>after-command</em>, or <em>periodic</em>. (GH #190)
+</p>
+</li>
+<li>
+<p>
+All default settings are in well-documented system <code>tigrc</code>.
+</p>
+</li>
+<li>
+<p>
+Add <code>:toggle</code> prompt command to manipulate options using keybindings. For
+   example: <code>bind diff D :toggle diff-options --patience --notes</code>. (GH #69)
+</p>
+</li>
+<li>
+<p>
+Add a new "auto" value for the <em>vertical-split</em> option to let Tig choose the
+   split orientation (this is the new default behavior). Can be toggled.
+</p>
+</li>
+<li>
+<p>
+Make it possible to toggle the display of files in untracked directories.
+</p>
+</li>
+<li>
+<p>
+Allow Tig to be started with no default configuration by specifying an
+   alternative system <code>tigrc</code> file, e.g.: <code>TIGRC_SYSTEM=~/.tigrc.safe tig</code>. Set
+   <code>TIGRC_SYSTEM</code> to the empty string to use built-in configuration instead of
+</p>
+</li>
+<li>
+<p>
+Key mappings can contain UTF-8 multibyte unicode keys.
+</p>
+</li>
+<li>
+<p>
+Warn about conflicting keybindings using Ctrl, e.g. <code>&lt;Ctrl-f&gt;</code> and
+   <code>&lt;Ctrl-F&gt;</code>. (GH #218)
+</p>
+</li>
+<li>
+<p>
+Extend key bindings for prompt commands (ie. <code>bind &lt;keymap&gt; &lt;key&gt; :&lt;prompt&gt;</code>)
+   to support predefined searches, eg.: <code>bind stage 2 :?^@@</code>.
+</p>
+</li>
+<li>
+<p>
+Git color mappings can be configured in tigrc.
+</p>
+</li>
+<li>
+<p>
+More informative configuration error messages.
+</p>
+</li>
+<li>
+<p>
+Make reference label formatting configurable, for example:
+   <code>set reference-format = (branch) &lt;tags&gt; remote</code>. (GH #201)
+</p>
+</li>
+<li>
+<p>
+Adjust author width and other view columns automatically. (GH #49)
+</p>
+</li>
+<li>
+<p>
+Support view specific colors: <code>color stage.diff-add yellow default</code>.
+</p>
+</li>
+<li>
+<p>
+Copy <code>-S</code>, <code>-G</code> and <code>--grep=</code> pattern to search buffer so <em>find-next</em> and
+   <em>find-prev</em> work as expected.
+</p>
+</li>
+<li>
+<p>
+Optionally specify custom prompt for <code>%(prompt)</code> in shell commands, e.g.
+   <code>bind main B ?git checkout -b "%(prompt Enter new branch name: )"</code>.
+</p>
+</li>
+<li>
+<p>
+Add <code>%(remote)</code> and <code>%(tag)</code> symbols to complement <code>%(branch)</code>.
+</p>
+</li>
+<li>
+<p>
+User-defined commands can now be prefixed with any of the supported flags,
+   e.g. <code>?git checkout -b %(branch)</code>.
+</p>
+</li>
+<li>
+<p>
+Open editor at line number for combined diffs e.g. diffs of unmerged files.
+</p>
+</li>
+<li>
+<p>
+Add build configuration for Cygwin (OS name: CYGWIN_NT-6.1). (GH #92)
+</p>
+</li>
+<li>
+<p>
+Document the Git commands supported by the pager mode.  (GH #1)
+   system <code>tigrc</code> configuration. (GH #235)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix stash diff display when reloading the stash view after a deleting.
+</p>
+</li>
+<li>
+<p>
+Set the commit reference when opening the blame view from the blob view.
+</p>
+</li>
+<li>
+<p>
+Correctly identify and highlight the remote branch tracked by HEAD.
+</p>
+</li>
+<li>
+<p>
+Pass --no-color after user defined arguments to ensure that colors do not
+   break the output parsing. (GH #191)
+</p>
+</li>
+<li>
+<p>
+Close stdin when pager mode is not supported.
+</p>
+</li>
+<li>
+<p>
+Show newly created branches in the main view. (GH #196)
+</p>
+</li>
+<li>
+<p>
+File with 0 changes breaks diffstat highlighting (GH #215)
+</p>
+</li>
+<li>
+<p>
+Update %(branch) variable in the main view. (GH #223)
+</p>
+</li>
+<li>
+<p>
+Disable graph rendering when either of <code>--reverse</code>, <code>-S</code>, <code>-G</code>, and <code>--grep</code>
+   are passed to the main view. (GH #127)
+</p>
+</li>
+<li>
+<p>
+Only refresh views that support it.
+</p>
+</li>
+<li>
+<p>
+Fix author and date annotation of renamed entries in the tree view.
+</p>
+</li>
+<li>
+<p>
+Fix use of unsafe methods in the signal handler. (GH #245)
+</p>
+</li>
+<li>
+<p>
+Fix rendering in non-UTF8 terminals.
+</p>
+</li>
+<li>
+<p>
+Fix stage-update-line by rewriting the diff chunk containing the line instead
+   of using <code>--unidiff-zero</code> and a diff context of zero. (GH #130)
+</p>
+</li>
+<li>
+<p>
+Fix status-update to work for untracked directories. (GH #236)
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t pass log parameters given on the command line to the diff view.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_1_2_1">tig-1.2.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Move manual and man pages to doc/ directory and rename AsciiDoc files
+   to have .asciidoc as the extension to make them render on GitHub.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Show blob sizes in the tree view either as bytes or using binary unit
+   prefixes. Example: <code>set show-file-size = units</code>. (GH #163)
+</p>
+</li>
+<li>
+<p>
+Reduce main view memory usage and startup time, especially when revision
+   graph rendering is disabled. (GH #160)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix submodule-related setup to check for non-zero return value from
+   setenv(). (GH #188)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_1_2">tig-1.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Tig now has its own tag on Stack Overflow, where users are invited to
+   ask questions: <a href="https://stackoverflow.com/questions/tagged/tig">https://stackoverflow.com/questions/tagged/tig</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Prompt commands can be bound to keys. For example:
+   <code>bind diff F :set diff-options = --full-diff</code>. (GH #69, #116)
+</p>
+</li>
+<li>
+<p>
+Add a diff-options setting for specifying default diff options.
+   Example: <code>set diff-options = --patience</code>. (GH #116)
+</p>
+</li>
+<li>
+<p>
+Options in diff-options and blame-options matching Tig browsing state
+   variables are replaced.
+</p>
+</li>
+<li>
+<p>
+Show diff stats as wide as the terminal. (GH #109)
+</p>
+</li>
+<li>
+<p>
+Show line numbers in the branch view. (GH #135)
+</p>
+</li>
+<li>
+<p>
+Add toggles for showing author email or email user names. (GH #115)
+</p>
+</li>
+<li>
+<p>
+Open editor at the selected line by prefixing the file argument with
+   <code>+&lt;lineno&gt;</code>. Tested in vi, Vim, Emacs, Nano, Gedit, Geany. Disable
+   by adding <code>set editor-line-number = no</code> to ~/.tigrc. (GH #118, #119)
+</p>
+</li>
+<li>
+<p>
+Add toggle-files to control whether to show full commit diff or only
+   the diff concerning the currently selected file, e.g. for blame.
+</p>
+</li>
+<li>
+<p>
+Optionally highlight exceeding characters in long commit titles.
+   The default title max width is 50 characters. Customize using:
+   <code>set title-overflow = 50</code> (GH #125)
+</p>
+</li>
+<li>
+<p>
+Add +ESC key bindings. Example: <code>bind generic ^[v move-page-up</code> (GH #120)
+</p>
+</li>
+<li>
+<p>
+Create temporary files in TMPDIR, TEMP, or TMP before defaulting to /tmp.
+</p>
+</li>
+<li>
+<p>
+Reenable <code>tig log</code> as a subcommand. (GH #146)
+</p>
+</li>
+<li>
+<p>
+Enable tilde expansion in ~/.tigrc "source" commands. (GH #168)
+</p>
+</li>
+<li>
+<p>
+Introduce the stash view, bound to the <em>y</em> keybinding. (GH #169, #174)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix blame and status to work in directories starting with a dot. (GH #172)
+</p>
+</li>
+<li>
+<p>
+Reload current branch name when reloading the status view. (GH #93)
+</p>
+</li>
+<li>
+<p>
+Fix compile errors on old Solaris. (GH #97)
+</p>
+</li>
+<li>
+<p>
+Reload HEAD info when reloading the stage view. (GH #104, #93)
+</p>
+</li>
+<li>
+<p>
+Fix disappearing branch labels after external commands. (GH #148)
+</p>
+</li>
+<li>
+<p>
+Fix diff view display for staged/unstaged changes when using <em>d</em>.
+</p>
+</li>
+<li>
+<p>
+Fix display of status messages when toggling view options. (GH #111)
+</p>
+</li>
+<li>
+<p>
+Fix illegal memory access. (GH #98)
+</p>
+</li>
+<li>
+<p>
+Fix display of all branches label in repos with short branch names.
+</p>
+</li>
+<li>
+<p>
+Fix rendering glitch for branch names.
+</p>
+</li>
+<li>
+<p>
+Do not apply diff styling to untracked files in the stage view. (GH #153)
+</p>
+</li>
+<li>
+<p>
+Fix tree indentation for entries containing combining characters. (GH #170)
+</p>
+</li>
+<li>
+<p>
+Ignore unrepresentable characters when transliterating text for rendering.
+</p>
+</li>
+<li>
+<p>
+Transliterate text to output encoding before trimming it to avoid
+   misalignment. (GH #86)
+</p>
+</li>
+<li>
+<p>
+Introduce a more natural context-sensitive log display. (GH #155)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_1_1">tig-1.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Disable diff move/copy detection by default, boosting diff
+   performance on larger projects. Use git config <em>diff.renames</em> option
+   (Git-wide) to set your preferred behavior. Environment variable
+   TIG_DIFF_OPTS can be used to restore the old behavior.
+</p>
+</li>
+<li>
+<p>
+Fix manual keybinding for stage-single-line. (GH #108)
+</p>
+</li>
+<li>
+<p>
+Values set for author-width and filename-width will result in widths
+   one character bigger than previously.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Typing a text in the prompt will be interpreted as a Tig command.
+   Prefixing the command with a <em>!</em> will execute this system command in
+   an external pager. Entering a single key will execute the
+   corresponding key binding.
+</p>
+</li>
+<li>
+<p>
+Basic support for wrapping long line in pager, diff, and stage views.
+   Enable using: <code>set wrap-lines = yes</code>. (GH #2)
+</p>
+</li>
+<li>
+<p>
+User-defined commands prefixed with a <em>?</em> means prompt before
+   execution. Example: <code>bind main B !?git rebase -i %(commit)</code>.
+</p>
+</li>
+<li>
+<p>
+User-defined commands prefixed with a <em>&lt;</em> means exit after execution.
+   Example: <code>bind main C !&lt;git commit</code>. (GH #66)
+</p>
+</li>
+<li>
+<p>
+User-defined commands are executed unquoted to support shell commands.
+   Example: <code>bind generic I !@sh -c "echo -n %(commit) | xclip -selection c"</code>.
+   (GH #65)
+</p>
+</li>
+<li>
+<p>
+Configure case-insensitive searches using: <code>set ignore-case = yes</code>.
+</p>
+</li>
+<li>
+<p>
+Add "deleted mode" line type for better diff coloring.
+</p>
+</li>
+<li>
+<p>
+Open editor when requesting edit action from within a file diff.
+</p>
+</li>
+<li>
+<p>
+Update AX_WITH_CURSES to build under Cygwin.
+</p>
+</li>
+<li>
+<p>
+Improve tigrc(5) documentation. (Debian #682766)
+</p>
+</li>
+<li>
+<p>
+Allow to build on Mac OS 10.7 without the configure script. (GH #25)
+</p>
+</li>
+<li>
+<p>
+Add option to split the view vertically instead of horizontally.
+   Example: &#8216;set vertical-split = yes&#8217;. (GH #76)
+</p>
+</li>
+<li>
+<p>
+Add <em>show-id</em> and <em>id-width</em> options to configure the display of
+   commit IDs in the main view and ID width in the blame view. (GH #77)
+</p>
+</li>
+<li>
+<p>
+Allow to override Git based encoding to UTF-8 by setting
+   <em>i18n.commitencoding</em> or <em>gui.encoding</em>.
+</p>
+</li>
+<li>
+<p>
+Improve autobuild support to track generated files and work with
+   autoreconf 2.61.
+</p>
+</li>
+<li>
+<p>
+Commit IDs are read from stdin when --stdin is given; works for main
+   and diff view, e.g. <code>tig --no-walk --stdin &lt; cherry-picks.txt</code>.
+</p>
+</li>
+<li>
+<p>
+Add option to disable focusing of the child view when it&#8217;s opened.
+   Disable using: <code>set focus-child = no</code>. (GH #83)
+</p>
+</li>
+<li>
+<p>
+Allow to open blob related with added content in a diff. (GH #91)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix commit graph regression when a path spec is specified. (GH #53)
+</p>
+</li>
+<li>
+<p>
+Main view: only show staged/unstaged changes for the current branch.
+</p>
+</li>
+<li>
+<p>
+Support submodules created with current version of git. (GH #54)
+</p>
+</li>
+<li>
+<p>
+Fix diff status message for file diffs with no content changes.
+</p>
+</li>
+<li>
+<p>
+Fix parent blaming when Tig is launched in subdirectory. (GH #70)
+</p>
+</li>
+<li>
+<p>
+Do not show deleted branch when reloading the branch view.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_1_0">tig-1.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The master repository is git://github.com/jonas/tig.git, and the old
+master repository (<a href="http://jonas.nitro.dk/tig/tig.git">http://jonas.nitro.dk/tig/tig.git</a>) will be retired.</p></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use git-log(1)s default commit ordering. The old behavior can be
+   restored by adding <code>set commit-order = topo</code> to ~/.tigrc.
+</p>
+</li>
+<li>
+<p>
+Support staging of single lines. Bound to <em>1</em> default. (GH #21)
+</p>
+</li>
+<li>
+<p>
+Use +&lt;lineno&gt; to open the initial view at an arbitrary line. (GH #20)
+</p>
+</li>
+<li>
+<p>
+Add show-notes ~/.tigrc option. Notes are displayed by default.
+</p>
+</li>
+<li>
+<p>
+Support jumping to specific SHAs in the main view.
+</p>
+</li>
+<li>
+<p>
+Decorate replaced commits.
+</p>
+</li>
+<li>
+<p>
+Display line numbers in main view.
+</p>
+</li>
+<li>
+<p>
+Colorize binary diff stats. (GH #17)
+</p>
+</li>
+<li>
+<p>
+Custom colorization of lines matching a string prefix (GH #16).
+   Example configuration: color "Reported-by:" green default
+</p>
+</li>
+<li>
+<p>
+Use Git&#8217;s color settings for the main, status and diff views.
+   Put <code>set read-git-colors = no</code> in ~/.tigrc to disable.
+</p>
+</li>
+<li>
+<p>
+Handle editor options with multiple arguments. (GH #12)
+</p>
+</li>
+<li>
+<p>
+Show filename when running tig blame with copy detection. (GH #19)
+</p>
+</li>
+<li>
+<p>
+Use <em>source &lt;path&gt;</em> command to load additional files from ~/.tigrc
+</p>
+</li>
+<li>
+<p>
+User-defined commands prefixed with <em>@</em> are run with no console
+   output, e.g.
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>bind generic 3 !@rm sys$command</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Make display of space changes togglable in the diff and stage view.
+   Bound to <em>W</em> by default.
+</p>
+</li>
+<li>
+<p>
+Use per-file encoding specified in gitattributes(5) for blobs and
+   unstaged files.
+</p>
+</li>
+<li>
+<p>
+Obsolete commit-encoding option and pass --encoding=UTF-8 to revision
+   commands.
+</p>
+</li>
+<li>
+<p>
+Main view: show uncommitted changes as staged/unstaged commits.
+   Can be disabled by putting <code>set show-changes = no</code> in ~/.tigrc.
+</p>
+</li>
+<li>
+<p>
+Add %(prompt) external command variable, which will prompt for the
+   argument value.
+</p>
+</li>
+<li>
+<p>
+Log information about Git commands when the TIG_TRACE environment
+   variable is set. Example: <code>TIG_TRACE=/tmp/tig.log tig</code>
+</p>
+</li>
+<li>
+<p>
+Branch view: Show the title of the last commit.
+</p>
+</li>
+<li>
+<p>
+Increase the author auto-abbreviation threshold to 10. (GH #49)
+</p>
+</li>
+<li>
+<p>
+For old commits show number of years in relative dates. (GH #50)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix navigation behavior when going from branch to main view. (GH #38)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when sorting the tree view by author name.
+</p>
+</li>
+<li>
+<p>
+Fix diff stat navigation for unmodified files with stat changes.
+</p>
+</li>
+<li>
+<p>
+Show branches/refs which names are a substring of the current branch.
+</p>
+</li>
+<li>
+<p>
+Stage view: fix off-by-one error when jumping to a file in a diff
+   with only one file.
+</p>
+</li>
+<li>
+<p>
+Fix diff-header colorization. (GH #15)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_18">tig-0.18</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Remove support for the deprecated TIG_{MAIN,DIFF,LOG,TREE,BLOB}_CMD
+   environment variables.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Pressing enter on diff stat file lines will jump to file&#8217;s diff.
+</p>
+</li>
+<li>
+<p>
+Naïvely color blame IDs to distinguish lines.
+</p>
+</li>
+<li>
+<p>
+Document palette color options used for revision graph and blame IDs.
+</p>
+</li>
+<li>
+<p>
+Add support for blaming diff lines.
+</p>
+</li>
+<li>
+<p>
+Add diff-context option and bindings to increase the diff context in
+   the diff and stage view.
+</p>
+</li>
+<li>
+<p>
+(GH-6) Make blame configurable via extra options passed from the command
+   line and blame-options setting from ~/.tigrc. For example:
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>set blame-options = -C -C -C</code></pre>
+</div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Expand browsing state variables for prompt. (LP #694780, Debian #635546)
+</p>
+</li>
+<li>
+<p>
+Fix segfault when sorting the branch view by author.
+</p>
+</li>
+<li>
+<p>
+Expand %(directory) to . for the root directory. (GH-3)
+</p>
+</li>
+<li>
+<p>
+Accept <em>utf-8</em> for the line-graphics option as indicated in the docs.
+</p>
+</li>
+<li>
+<p>
+Use erasechar() to check for the correct backspace character.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_17">tig-0.17</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Start rewrite of the revision graph renderer. Three modes are
+   supported UTF-8, ncurses line graphics, and ASCII. Also, enable
+   revision graph rendering by default.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix ncurses 5.8 issue by passing non-zero column size to newwin().
+</p>
+</li>
+<li>
+<p>
+Fix opening of diffs when browsing branches.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_16_2">tig-0.16.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix regression causing empty tree view.
+</p>
+</li>
+<li>
+<p>
+Fix set_tabsize() compile error for older versions of ncurses.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_16_1">tig-0.16.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add scroll-first-col action to jump to the first column. Bound to <em>|</em>
+   by default.
+</p>
+</li>
+<li>
+<p>
+Add <em>status-untracked-dirs</em> option to ignore unknown directories
+   contents in the status view. On by default.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix <em>tig show &lt;commit&gt;</em> to show the provided commit.
+</p>
+</li>
+<li>
+<p>
+Fix problem with empty diff views when file specs were passed on the
+   command line.
+</p>
+</li>
+<li>
+<p>
+Fix segfault when starting Tig in pager mode.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_16">tig-0.16</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Encode everything internally as UTF-8. This can affect performance,
+   but should in general improve handling of character lengths etc.
+   Also, to properly handle UTF-8 environments use ncurses with wide
+   character support.
+</p>
+</li>
+<li>
+<p>
+The use of TIG_{MAIN,DIFF,LOG,TREE,BLOB}_CMD environment variables
+   has been deprecated. To allow configuration of the diff view,
+   TIG_DIFF_OPTS can be used.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Plug several memory leaks.
+</p>
+</li>
+<li>
+<p>
+Command line arguments are split into diff, revision, and file
+   arguments and made available as %(diffargs), %(revargs), and
+   %(fileargs). Diff view will limit diffs using %(fileargs).
+</p>
+</li>
+<li>
+<p>
+Status view: update the file variable when a line is selected so
+   %(file) works as expected.
+</p>
+</li>
+<li>
+<p>
+Branch view: add %(branch) symbol providing access to the selected
+   branch.
+</p>
+</li>
+<li>
+<p>
+Branch view: add entry to browse all branches (uses git-log&#8217;s --all
+   flag).
+</p>
+</li>
+<li>
+<p>
+Abbreviation of author names can now be configured and toggled.
+</p>
+</li>
+<li>
+<p>
+Mark detached heads with [HEAD].
+</p>
+</li>
+<li>
+<p>
+Add support for displaying dates in local time.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: fix usage from sub directories, which was broken by the
+   changes made to support blame view from sub directories.
+</p>
+</li>
+<li>
+<p>
+Fix text expansion to not truncate long lines
+</p>
+</li>
+<li>
+<p>
+Fix parsing of boolean show-date values.
+</p>
+</li>
+<li>
+<p>
+Fix relative date.
+</p>
+</li>
+<li>
+<p>
+Fix unbind to behave as if the keybinding was never defined.
+</p>
+</li>
+<li>
+<p>
+Fix unbind to also cover built-in run requests.
+</p>
+</li>
+<li>
+<p>
+Fix parsing of unknown keymap names.
+</p>
+</li>
+<li>
+<p>
+Blame view: fix parent blame to detect renames. It uses "previous"
+   line info from the blame porcelain output added in Git version 1.6.3.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_15">tig-0.15</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Setting the cursor color no longer automatically sets the text to
+   bold. The old <em>lazy</em> behavior was a bug.
+</p>
+</li>
+<li>
+<p>
+Remove check for git-repo-config, which was officially deprecated in
+   Git version 1.5.4. The configure script no longer depends on Git
+   being installed.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Provide the manual as a man page named tigmanual(7).
+</p>
+</li>
+<li>
+<p>
+Add ability to toggle between showing shorter dates (without time
+   info) and relative dates. Use <em>D</em> to toggle between date formats.
+</p>
+</li>
+<li>
+<p>
+Show the active (instead of the default) keybindings in the help
+   view. Furthermore, honor the keymap when suggesting actions in the
+   help messages.
+</p>
+</li>
+<li>
+<p>
+Add branch view for choosing which branch to display in the main
+   view. Bound to <em>H</em> by default.
+</p>
+</li>
+<li>
+<p>
+Tree view: show entry to parent directory (<em>..</em>) when running from
+   subdirectory.
+</p>
+</li>
+<li>
+<p>
+Tree view: sort entries by name, date or author. Toggling is bound to
+   <em>i</em> by default, with <em>I</em> controlling whether or not to sort in
+   ascending order.
+</p>
+</li>
+<li>
+<p>
+Make height of the lower view in a split view configurable by setting
+   the <em>split-view-height</em> variable to a number or a percentage.
+   Defaults to 2/3 of the total view height.
+</p>
+</li>
+<li>
+<p>
+Allow multiple text attributes for color commands:
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>color cursor white blue underline bold</code></pre>
+</div></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Blame view: fix loading of blame data when opened from the tree view
+   and CWD is not the repo root. (Debian bug 540766)
+</p>
+</li>
+<li>
+<p>
+Tree view: fix searching.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_14_1">tig-0.14.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: improve "on branch" information inspired by the prompt
+   code in Git&#8217;s bash completion script.
+</p>
+</li>
+<li>
+<p>
+Colors for 256-capable terminals can be specified as colorN.
+</p>
+</li>
+<li>
+<p>
+Entering a number in the prompt will jump to that line number.
+</p>
+</li>
+<li>
+<p>
+Handle core.worktree by setting GIT_DIR and GIT_WORK_TREE.
+</p>
+</li>
+<li>
+<p>
+Make behavior of horizontal scrolling configurable by setting the
+   <em>horizontal-scroll</em> variable to a number or a percentage. Defaults to
+   scrolling 50% of the view width.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: show error when failing to open a file.
+</p>
+</li>
+<li>
+<p>
+Status view: report failures to update a file.
+</p>
+</li>
+<li>
+<p>
+Blame view: fix problem with uninitialized variable.
+</p>
+</li>
+<li>
+<p>
+Blame view: use line number information when loading blame for
+   specific commit.
+</p>
+</li>
+<li>
+<p>
+Fix handling of quoted strings in the config file.
+</p>
+</li>
+<li>
+<p>
+Fix horizontal scrolling glitches.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_14">tig-0.14</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The screen-resize action has been deprecated. It had no real use for
+   users and was never meant to be exposed.
+</p>
+</li>
+<li>
+<p>
+The "tree-parent" action was renamed to "parent". Warnings will be
+   emitted for transition.
+</p>
+</li>
+<li>
+<p>
+Remove parsing of deprecated option -S and subcommands log and diff.
+</p>
+</li>
+<li>
+<p>
+The "author" color replaces "main-author". Setting the latter will
+   now set the "author" color.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Horizontal scrolling. Bound to Left/Right by default.
+</p>
+</li>
+<li>
+<p>
+Read tigrc(5) options from Git configuration files using the syntax:
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>[tig] show-rev-graph = true
+[tig "color"] cursor = yellow red bold
+[tig "bind"] generic = P parent</code></pre>
+</div></div>
+</li>
+<li>
+<p>
+Tree view: avoid flickering when updating.
+</p>
+</li>
+<li>
+<p>
+Tree view: annotate entries with commit information.
+</p>
+</li>
+<li>
+<p>
+Tree &amp; blob view: open any blob in an editor.
+</p>
+</li>
+<li>
+<p>
+Stage &amp; main view: restore view position when reloading.
+</p>
+</li>
+<li>
+<p>
+Blame view: load blame for parent commit. For merge commits the parent
+   is queried. Bound to <em>,</em> by default via the existing "parent" action.
+</p>
+</li>
+<li>
+<p>
+Abbreviate author names to initials when the width of the author column
+   is below 6 characters.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Tree view: fix memory corruption bug when updating.
+</p>
+</li>
+<li>
+<p>
+Tree view: improve handling of empty trees.
+</p>
+</li>
+<li>
+<p>
+Status view: fix reverting of unmerged files.
+</p>
+</li>
+<li>
+<p>
+Fix regression for non-UTF-8 locales corrupting the view data.
+</p>
+</li>
+<li>
+<p>
+Fix regression parsing multiple spaces in ~/.tigrc.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_13">tig-0.13</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Commands from the environment (e.g. TIG_MAIN_CMD) will no longer have
+   access to shell features, such as subshells and variable expansion.
+   The easiest way to upgrade your configuration is to put such commands
+   in a script file or as a Git alias.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Display repository references in the sorted order: tags, heads,
+   tracked remotes, remotes.
+</p>
+</li>
+<li>
+<p>
+Add bash completion for blame.
+</p>
+</li>
+<li>
+<p>
+Tree view: edit files of the current branch.
+</p>
+</li>
+<li>
+<p>
+Run requests: new identifiers %(directory), %(file), and %(ref)
+</p>
+</li>
+<li>
+<p>
+Improve responsiveness and view loading speed by using select(2).
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Separate blame revision and file argument by "--" to avoid problems.
+</p>
+</li>
+<li>
+<p>
+Main view: fix redrawing of the last commit wrt. the revision graph.
+</p>
+</li>
+<li>
+<p>
+Fix waiting for input after executing a run request in pager mode.
+</p>
+</li>
+<li>
+<p>
+Status &amp; stage view: refuse to open directories and deleted files.
+</p>
+</li>
+<li>
+<p>
+Tree view: show error when requesting blame for all non-file entries.
+</p>
+</li>
+<li>
+<p>
+Do not draw loading views, which are not displayed.
+</p>
+</li>
+<li>
+<p>
+Fix launching of mergetool from a subdirectory.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_12_1">tig-0.12.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: revert uncommitted diff chunks and unstaged files with
+   changes. Bound to <em>!</em> by default.
+</p>
+</li>
+<li>
+<p>
+Main view: use --topo-order also when rev-list arguments are given on
+   the command line.
+</p>
+</li>
+<li>
+<p>
+Log view: support for refreshing.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: use ls-files' --exclude-standard so user specific ignore
+   rules are effective. The option was added in Git version 1.5.4.
+</p>
+</li>
+<li>
+<p>
+Stage view: fix assertion failure triggered when updating while
+   status view is not displayed.
+</p>
+</li>
+<li>
+<p>
+Help view: avoid confusion by showing "(no key)" instead of "<em>?</em>" for
+   unbound requests.
+</p>
+</li>
+<li>
+<p>
+Reload repository references when refreshing the main (and log) view.
+</p>
+</li>
+<li>
+<p>
+Do not maximize views when refreshing.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_12">tig-0.12</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+F5 also refreshes the current view.
+</p>
+</li>
+<li>
+<p>
+Allow line graphics to be disabled with new line-graphics option.
+</p>
+</li>
+<li>
+<p>
+Main view: also include the reference names when searching.
+</p>
+</li>
+<li>
+<p>
+Main view: support for refreshing.
+</p>
+</li>
+<li>
+<p>
+Main view: disable boundary commits by default. Use --boundary when
+   they should be shown. (Debian bug 498628)
+</p>
+</li>
+<li>
+<p>
+Stage view: add stage-next action to jump to next diff chunk that can
+   be staged. By default bound to <em>@</em>.
+</p>
+</li>
+<li>
+<p>
+Configure: check for the ncurses header files.
+</p>
+</li>
+<li>
+<p>
+Add author-width option to customize the width of the author column.
+   For example, put the following in ~/.tigrc: set author-width = 10
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix regression when staging all diff chunks in a section.
+</p>
+</li>
+<li>
+<p>
+Bind the maximize view action to <em>O</em>; it conflicted with the
+   keybinding to launch the merge tool in the status view.
+</p>
+</li>
+<li>
+<p>
+Fix problem with $(cmd) usage in shell code. Some shells (jsh)
+   installed as /bin/sh does not support it.
+</p>
+</li>
+<li>
+<p>
+Do not show incomplete boundary commits when --no-walk is used.
+</p>
+</li>
+<li>
+<p>
+Documentation: Rename gitlink macro to support AsciiDoc 8.2.3.
+</p>
+</li>
+<li>
+<p>
+Ignore pipe reads with errno "Success" reported after a signals,
+   for example when refreshing doing background loading.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_11">tig-0.11</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Remove parsing of deprecated options: -g, -l, -d.
+</p>
+</li>
+<li>
+<p>
+The first seen <em>--</em> will stop option parsing and is passed to Git
+   instead of breaking out of Tig&#8217;s option parsing.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>New features:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Blame view; bound to <em>B</em> by default, reachable from the command line
+   and the tree, status, and stage views.
+</p>
+</li>
+<li>
+<p>
+Blame/main view: allow display of date, author, and references to be
+   toggled on/off. Bound to <em>D</em>, <em>A</em>, and <em>F</em> respectively.
+</p>
+</li>
+<li>
+<p>
+Add action to maximize the current view.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Show the current branch in the status view.
+</p>
+</li>
+<li>
+<p>
+Show local/light-weight tags.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix regressions for the pager mode.
+</p>
+</li>
+<li>
+<p>
+Fix refreshing of the index with working directory info.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_10_1">tig-0.10.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: detect renamed files and show them with <em>R</em>.
+</p>
+</li>
+<li>
+<p>
+Status view: refresh the index to avoid "empty diffs".
+</p>
+</li>
+<li>
+<p>
+Diff view: make diff headers more verbose to include e.g. committer.
+</p>
+</li>
+<li>
+<p>
+Configure: check for the ncursesw library.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix UTF-8 handling for tag names and commit messages.
+</p>
+</li>
+<li>
+<p>
+Fix the check for git-config(1) in configure to handle the case when
+   Git has been installed using a libexecdir which is not in the path.
+</p>
+</li>
+<li>
+<p>
+Fix replacing of SYSCONFDIR when installing from released tarballs.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_10">tig-0.10</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Deprecate most Tig specific command line options to make Tig more
+   compatible with gitk. The deprecated options are: -g, -l, -d, and -S.
+   Use of any of them will result in a warning being printed to stderr.
+   Instead of <em>-S</em>, use the new <em>status</em> subcommand.
+</p>
+</li>
+<li>
+<p>
+Make man page building depend on DocBook XSL version &gt;= 1.72.0.
+</p>
+</li>
+<li>
+<p>
+Install man pages in $(prefix)/share/man.
+</p>
+</li>
+<li>
+<p>
+Implement the cherry pick action (bound to <em>C</em>) using new support for
+   running external commands. This obsoletes the TIG_CHEERY_PICK
+   environment variable
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>New features:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add support for binding keys to external commands. To bind <em>.</em> to
+   running git-commit(1), add the line: "bind generic . !git commit" to
+   your ~/.tigrc. Each command can have replacement string such as
+   %(commit), %(head), and %(blob), which are substituted before the
+   command is run.
+</p>
+</li>
+<li>
+<p>
+Add system-wide configuration file defaulting to $(prefix)/etc/tigrc.
+</p>
+</li>
+<li>
+<p>
+Add the environment variables TIGRC_USER and TIGRC_SYSTEM to change
+   user and system-wide configuration files, respectively.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Main view: color the revision graph.
+</p>
+</li>
+<li>
+<p>
+Main view: show boundary commits; they are marked with <em>^</em> in the
+   revision graph.
+</p>
+</li>
+<li>
+<p>
+Tree view: add tree-parent action to jump to view of the parent tree.
+   Bound to <em>,</em> by default.
+</p>
+</li>
+<li>
+<p>
+Allow the default terminal colors to be overwritten. To use black
+   text on white, add the line "color default white black" to your
+   ~/.tigrc.
+</p>
+</li>
+<li>
+<p>
+Misc. documentation improvements.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Use git-diff-index(1) and git-diff-files(1) instead of git-diff(1) to
+   avoid running external diff drivers.
+</p>
+</li>
+<li>
+<p>
+Use --no-color when calling git-log(1).
+</p>
+</li>
+<li>
+<p>
+Fix crash when opening mergetool for lines that are not unmerged.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_9_1">tig-0.9.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incompatibilities:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Make the clean rule to never remove generated documentation files.
+   Use the distclean rule for accomplishing this.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>New features:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add support for cherry-picking commits in the main view to the
+   current branch. Bound to <em>C</em> by default.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add support for launching git-mergetool(1) from the status view.
+   Bound to <em>M</em> by default.
+</p>
+</li>
+<li>
+<p>
+Add support for refreshing/reloading the status view
+</p>
+</li>
+<li>
+<p>
+Detect working trees and disable the status view when it is missing.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Bug fixes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix iconv() checking in configure.
+</p>
+</li>
+<li>
+<p>
+Fix editor invocation to make paths relative to the project root.
+</p>
+</li>
+<li>
+<p>
+Fix out-of-range current line when reloading the status view.
+</p>
+</li>
+<li>
+<p>
+Include autoconf files in the tarball generated by <code>make dist</code>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tig_0_9">tig-0.9</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>New features:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Add bash completion script for Tig (contrib/tig-completion.bash).
+</p>
+</li>
+<li>
+<p>
+Add optional autoconf-based build infrastructure.
+</p>
+</li>
+<li>
+<p>
+Add stage view for showing changes in the working tree and add
+   support for staging individual diff chunks for commit.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Improvements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Status view: allow all files in a section to be staged for commit.
+</p>
+</li>
+<li>
+<p>
+Status view: Add support for opening files in an editor. Bound to <em>e</em>
+   by default.
+</p>
+</li>
+<li>
+<p>
+Tree view: use a stack for remembering the lines for parent tree.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>/* vim: set tw=80: */</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2025-02-05
+</div>
+</div>
+</body>
+</html>
