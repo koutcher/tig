@@ -42,6 +42,7 @@ struct main_state {
 	bool add_changes_staged;
 	bool add_changes_unstaged;
 	bool add_changes_untracked;
+	bool has_notes;
 };
 
 bool main_get_column_data(struct view *view, const struct line *line, struct view_column_data *column_data);

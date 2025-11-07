@@ -445,6 +445,14 @@ main_read(struct view *view, struct buffer *buf, bool force_stop)
 	}
 
 	line = buf->data;
+
+	/* Skip remaining lines of notes until <ETX>. */
+	if (state->has_notes) {
+		if (!strcmp(line, "\x03"))
+			state->has_notes = false;
+		return true;
+	}
+
 	type = get_line_type(line);
 	if (type == LINE_COMMIT) {
 		bool is_boundary;
@@ -482,7 +490,8 @@ main_read(struct view *view, struct buffer *buf, bool force_stop)
 			if (title) {
 				char *notes = io_memchr(buf, title, 0);
 
-				main_add_commit(view, notes && *notes ? LINE_MAIN_ANNOTATED : LINE_MAIN_COMMIT,
+				state->has_notes = (notes && *notes != '\x03');
+				main_add_commit(view, state->has_notes ? LINE_MAIN_ANNOTATED : LINE_MAIN_COMMIT,
 						commit, title, false);
 			}
 		}
