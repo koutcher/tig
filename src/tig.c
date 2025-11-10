@@ -336,6 +336,7 @@ view_driver(struct view *view, enum request request)
 			end_update(view, true);
 			maximize_view(view->prev, true);
 			view->prev = view;
+			view->parent = NULL;
 			break;
 		}
 		if (request == REQ_VIEW_CLOSE_NO_QUIT) {
