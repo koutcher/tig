@@ -117,7 +117,7 @@ OPTION_INFO(DEFINE_OPTION_EXTERNS)
 	_(width,			int,			VIEW_NO_FLAGS) \
 
 #define FILE_NAME_COLUMN_OPTIONS(_) \
-	_(display,			enum filename,		VIEW_GREP_LIKE) \
+	_(display,			enum filename,		VIEW_GREP_LIKE | VIEW_BLAME_LIKE) \
 	_(width,			int,			VIEW_NO_FLAGS) \
 	_(maxwidth,			int,			VIEW_NO_FLAGS) \
 
