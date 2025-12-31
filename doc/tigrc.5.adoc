@@ -984,9 +984,10 @@ Color command
 -------------
 
 Color commands control highlighting and the user interface styles. If your
-terminal supports color, these commands can be used to assign foreground and
-background combinations to certain areas. Optionally, an attribute can be
-given as the last parameter. The syntax is:
+terminal supports color and the NO_COLOR environment variable is unset
+or empty, these commands can be used to assign foreground and background
+combinations to certain areas. Optionally, an attribute can be given as
+the last parameter. The syntax is:
 
 [verse]
 *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
