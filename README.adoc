@@ -4,7 +4,7 @@ Tig: text-mode interface for Git
 
 image:https://github.com/jonas/tig/workflows/Linux/badge.svg[Linux CI,link=https://github.com/jonas/tig/actions?query=workflow%3ALinux]
 image:https://github.com/jonas/tig/workflows/macOS/badge.svg[macOS CI,link=https://github.com/jonas/tig/actions?query=workflow%3AmacOS]
-image:https://ci.appveyor.com/api/projects/status/jxt1uf52o7r0a8r7/branch/master?svg=true[AppVeyor Build,link=https://ci.appveyor.com/project/fonseca/tig]
+image:https://ci.appveyor.com/api/projects/status/jxt1uf52o7r0a8r7?svg=true[AppVeyor Build,link=https://ci.appveyor.com/project/fonseca/tig]
 
 What is Tig?
 ------------
