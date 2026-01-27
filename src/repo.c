@@ -57,13 +57,15 @@ read_repo_info(char *name, size_t namelen, char *value, size_t valuelen, void *d
 		 * this special case by looking at the emitted value. If it looks
 		 * like a commit ID and there's no cdup path assume that no value
 		 * was emitted. */
-		if (!*repo.cdup && namelen == 40 && iscommit(name))
+		if (!*repo.cdup && ((namelen == 40 && iscommit(name)) ||
+				    !strcmp(name, REPO_INFO_RESOLVED_HEAD)))
 			return read_repo_info(name, namelen, value, valuelen, data);
 
 		string_ncopy(repo.prefix, name, namelen);
 
 	} else if (!strcmp(arg, REPO_INFO_RESOLVED_HEAD)) {
-		string_ncopy(repo.head_id, name, namelen);
+		if (strcmp(name, REPO_INFO_RESOLVED_HEAD))
+			string_ncopy(repo.head_id, name, namelen);
 
 	} else if (!strcmp(arg, REPO_INFO_SYMBOLIC_HEAD)) {
 		if (!prefixcmp(name, "refs/heads/")) {
