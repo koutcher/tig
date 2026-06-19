@@ -1,6 +1,13 @@
 Release notes
 =============
 
+master
+------
+
+Bug fixes:
+
+ - Fix blob edit in bare repository.
+
 tig-2.6.1
 ---------
 
